@@ -29,13 +29,16 @@ define( 'DB_USER', 'team-chaos-coffee' );
 define( 'DB_PASSWORD', 'qtX9mdTh!npY' );
 
 /** MySQL hostname */
-define( 'DB_HOST', ' http://188.166.24.55/' );
+define( 'DB_HOST', '188.166.24.55' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
+
+/** Pour permettre d'installer des plugins sur Linux */
+define('FS_METHOD','direct');
 
 /**#@+
  * Authentication Unique Keys and Salts.
