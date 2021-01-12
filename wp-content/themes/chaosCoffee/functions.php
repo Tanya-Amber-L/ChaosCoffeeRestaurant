@@ -13,6 +13,14 @@ register_sidebar( array(
     'after_title' => '</p>',
 ) );
 
+// Déclarer style.css à la racine du thème
+wp_enqueue_style( 
+    'choas coffee',
+    get_stylesheet_uri(), 
+    array(), 
+    '1.0'
+);
+
   // for posts
 	add_filter('use_block_editor_for_post', '__return_false', 10);
   // for post types

@@ -8,7 +8,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <header class="header">
-    <a class="title" href="<?= home_url( '/' ); ?>">Dev Restaurant</a>
+    <a class="title" href="<?= home_url( '/' ); ?>">Chaos Coffee Restaurant</a>
     <?php
     wp_nav_menu(
         array(
