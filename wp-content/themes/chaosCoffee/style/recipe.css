@@ -1,0 +1,56 @@
+
+.main-single {
+	max-width: 150rem;
+}
+
+/*INFORMATION PANEL*/
+.recipe__info {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.recipe__category {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+/*INSTRUCTIONS*/
+.recipe__instructions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.recipe__instruction {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.recipe__instruction__content {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	width: 100vw;
+	max-width: 120rem;
+}
+.recipe__instruction__number {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	margin: 0.5rem;
+	background-color: var(--color-black);
+	color: var(--color-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.recipe__instruction__text {
+	width: 80%;
+	word-wrap: break-word;
+	margin: 0.6rem 0;
+}
+.recipe__instruction__image {
+	max-width: 100vw;
+	margin: 1rem 0;
+}
