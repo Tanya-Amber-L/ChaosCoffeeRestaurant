@@ -18,8 +18,8 @@
 			<?php }}
 		?>
 	</div>
-	<h1 class="recipe__name title"><?php the_field( "banner_title" ); ?></h1>
-	<h2 class="recipe__name subtitle"><?php the_field( "banner_subtitle" ); ?></h2>
+	<h1 class="recipe__title"><?php the_field( "banner_title" ); ?></h1>
+	<h2 class="recipe__subtitle"><?php the_field( "banner_subtitle" ); ?></h2>
 </section>
 
 <section class="recipe__ingredients">

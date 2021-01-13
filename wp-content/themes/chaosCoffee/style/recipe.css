@@ -3,13 +3,21 @@
 	max-width: 150rem;
 }
 
-/*INFORMATION PANEL*/
+/*BANNER*/
+.recipe__banner {
+	margin: 1rem;
+}
 .recipe__info {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 }
-
+.recipe__title {
+	font-size: 4rem;
+}
+.recipe__subtitle {
+	font-size: 1.8rem;
+}
 .recipe__category {
 	display: flex;
 	flex-direction: row;
