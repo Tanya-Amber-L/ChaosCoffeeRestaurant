@@ -1,11 +1,10 @@
 <?php
-// Déclarer style.css à la racine du thème
-wp_enqueue_style(
-    'chaos coffee',
-    get_stylesheet_uri(),
-    array(),
-    '1.0'
-);
+
+function theme_register_assets () {
+	//wp_register_style( 'themeStyle', 'localhost/testWordpress/wp-content/themes/testTheme/style.css' );
+  wp_enqueue_style( 'main-style', get_template_directory_uri() . "/style.css");
+  wp_enqueue_style( 'recipe-style', get_template_directory_uri() . "/style/recipe.css", ['main-style']);
+}
 
 register_nav_menus( array(
     'main' => 'Menu Principal',
@@ -21,7 +20,9 @@ register_sidebar( array(
     'after_title' => '</p>',
 ) );
 
-  // for posts
-	add_filter('use_block_editor_for_post', '__return_false', 10);
-  // for post types
-	add_filter('use_block_editor_for_post_type', '__return_false', 10);
+add_action( 'wp_enqueue_scripts', 'theme_register_assets' );
+
+// for posts
+add_filter('use_block_editor_for_post', '__return_false', 10);
+// for post types
+add_filter('use_block_editor_for_post_type', '__return_false', 10);

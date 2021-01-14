@@ -7,11 +7,21 @@ Version: 1.0
 */
 
 /* --------------------- general ---------------- */
+* {
+    padding: 0;
+    margin: 0;
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("assets/fonts/Poppins-Thin.ttf");
+}
+
 html {
     font-size: 62.5%;
     --color-white: #fff;
     --color-black: #292929;
     --color-grey: #f5f5f5;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -22,6 +32,10 @@ p{
     font-size: 1.6rem;
     font-weight: 300;
 }
+ul, ol {
+    list-style: none;
+}
+a {text-decoration: none;}
 .title {
     font-size: 4.6rem;
     font-weight: 700;
@@ -41,6 +55,87 @@ p{
 .menu-text {
     font-size: 1.6rem;
     font-weight: 500;
+}
+.icon {
+    width: 2rem;
+    max-width: 2rem;
+    height: 2rem;
+    max-height: 2rem;
+}
+
+/* ---------------Header----------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3em 15em;
+    background-color: black;
+}
+header .title {color: var(--color-white);}
+header .site__header__menu{
+    list-style-type: none;
+    display: flex;
+}
+header .site__header__menu li a{
+    padding-left: 2em;
+    color: var(--color-white);
+}
+
+/* ---------------------Frontpage------------------- */
+/* banner */
+.banner__title {
+    position: relative;
+    color: var(--color-white);
+}
+.banner__title__img {
+    z-index: -10;
+    width: 100%;
+    position: relative;
+}
+.banner__title__text {
+    padding: 3em 15em;
+    width: 40%;
+    z-index: 10;
+    position: absolute;
+    bottom: 60vh;
+}
+.banner__title__text a{
+    color: var(--color-white);
+
+}
+.banner__pros {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -12em;
+    margin-left: 15em;
+    margin-right: 15em;
+}
+.banner__pros__box {
+    height: 32em;
+    margin: 2em; /*------------------*/
+    padding: 4em;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3em 3em 0 0;
+    box-shadow: 2px 2px 7px var(--color-grey);
+}
+
+/* intro */
+.intro{
+    padding: 10em 15em;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.intro__text{
+    position: absolute;
+    right: 15em;
+    background-color: var(--color-white);
+    box-shadow: 2px 2px 7px var(--color-grey);
+    padding: 10em;
+    width: 40%;
 }
 
 /* Front-page */
@@ -174,5 +269,7 @@ p{
     }
 
     /* --------------------- reservations - END ---------------- */
+
+/* restaurants */
 
 }
