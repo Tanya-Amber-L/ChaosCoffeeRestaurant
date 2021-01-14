@@ -5,7 +5,7 @@
 
     <div class="banner__title">
         <img class="banner__title__img" src="<?= get_field('banner_top_image')['url']; ?>" alt="">
-        <!-- <img class="hachures-blanches" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt=""> -->
+        <img class="banner__title__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
         <div class="banner__title__text">
             <h2 class="main-subtitle"> <?= get_field('banner_top_main_subtitle'); ?> </h2>
             <h1 class="main-title"> <?= get_field('banner_top_main_title'); ?> </h1>
@@ -56,30 +56,7 @@
 <!-- contient titre, et 1 bloc / restaurants (faire une boucle) -->
 <section class="restau">
 
-    <p class="subtitle"><?= get_field('restaurants_subtitle'); ?></p>
-    <p class="title"><?= get_field('restaurants_title'); ?></p>
-
-    <?php 
-        $args = array('post_type' => 'post', 'category_name' => 'restaurant');
-
-        $the_query = new WP_Query( $args );
-    ?>
-
-    <?php if( $the_query->have_posts() ) : while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                   
-        <div class="restau__presentation">
-            <div class="restau__presentation__text">
-                <p class="subtitle"><?= get_field('banner_top_main_subtitle'); ?></p>
-                <p class="title"><?= get_field('banner_top_main_title'); ?></p>
-                <p><?= get_field('presentation_qualities'); ?></p>
-                <a href="single-restaurant.php"> More infos </a> 
-                <!-- lien à changer -->
-            </div>
-            <img src="<?= get_field('banner_top_image')['url']; ?>" alt="">
-        </div>
-
-    <?php endwhile; endif; 
-    wp_reset_postdata(); ?>
+    <?php get_template_part('parts/restaurants') ?>
 
 </section>
 
