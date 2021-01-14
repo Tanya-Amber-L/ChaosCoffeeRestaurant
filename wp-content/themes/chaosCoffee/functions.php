@@ -1,4 +1,12 @@
 <?php
+// Déclarer style.css à la racine du thème
+wp_enqueue_style(
+    'chaos coffee',
+    get_stylesheet_uri(),
+    array(),
+    '1.0'
+);
+
 register_nav_menus( array(
     'main' => 'Menu Principal',
     'footer' => 'Bas de page',
