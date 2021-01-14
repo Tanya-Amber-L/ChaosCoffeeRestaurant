@@ -15,7 +15,7 @@ register_sidebar( array(
 
 // Déclarer style.css à la racine du thème
 wp_enqueue_style( 
-    'choas coffee',
+    'chaos coffee',
     get_stylesheet_uri(), 
     array(), 
     '1.0'
