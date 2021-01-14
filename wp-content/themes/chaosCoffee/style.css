@@ -127,10 +127,11 @@ header .site__header__menu li a{
     flex-direction: column;
     align-items: center;
     position: relative;
-    background-color: var(--color-grey);
+    padding: 7em 15em;
 }
 .restau::after{
     content: "";
+    background-color: var(--color-grey);
     background-image: url(assets/images/burger\ party.png);
     position: absolute;
     top: 0px;
@@ -138,6 +139,33 @@ header .site__header__menu li a{
     bottom: 0px;
     left: 0px;
     opacity: 0.4;
+    z-index: -20;
+}
+.restau__presentation {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5em 0;
+}
+.restau__presentation__text {
+    width: 40%;
+    background-color: var(--color-white);
+    position: absolute;
+    left: 0;
+    text-align: center;
+    padding: 5em;
+}
+.restau__presentation img {
+    width: 60%;
+    height: auto;
+    float: left;
+}
+.restau__presentation a {
+    padding: 2em;
+    color: var(--color-white);
+    background-color: var(--color-black);
 }
 
 /* menu */

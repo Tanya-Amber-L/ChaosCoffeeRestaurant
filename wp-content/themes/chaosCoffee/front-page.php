@@ -81,8 +81,6 @@
     <?php endwhile; endif; 
     wp_reset_postdata(); ?>
 
-
-
 </section>
 
 
