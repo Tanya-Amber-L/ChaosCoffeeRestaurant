@@ -4,6 +4,7 @@ function theme_register_assets () {
 	//wp_register_style( 'themeStyle', 'localhost/testWordpress/wp-content/themes/testTheme/style.css' );
   wp_enqueue_style( 'main-style', get_template_directory_uri() . "/style.css");
   wp_enqueue_style( 'recipe-style', get_template_directory_uri() . "/style/recipe.css", ['main-style']);
+  wp_enqueue_style( 'footer-style', get_template_directory_uri() . "/style/footer.css", ['main-style']);
 }
 
 register_nav_menus( array(
@@ -18,6 +19,11 @@ register_sidebar( array(
     'after_widget'  => '</div>',
     'before_title' => '<p class="site__sidebar__widget__title">',
     'after_title' => '</p>',
+) );
+
+register_sidebar( array(
+    'id' => 'footer',
+    'name' => 'Footer',
 ) );
 
 add_action( 'wp_enqueue_scripts', 'theme_register_assets' );
