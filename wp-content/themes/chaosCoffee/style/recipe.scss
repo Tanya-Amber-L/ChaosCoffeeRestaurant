@@ -1,0 +1,220 @@
+
+@mixin flex($direction: row, $justify: center, $align: center) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin filter($filter-type, $filter-amount) { 
+	-webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+	-moz-filter: $filter-type+unquote('(#{$filter-amount})');
+	-ms-filter: $filter-type+unquote('(#{$filter-amount})');
+	-o-filter: $filter-type+unquote('(#{$filter-amount})');
+	filter: $filter-type+unquote('(#{$filter-amount})');
+}
+
+@mixin image-wrapper($width: auto, $height: auto, $position: relative) {
+	width: $width;
+	height: $height;
+	position: $position;
+	overflow: hidden;
+	@include flex();
+}
+
+@mixin image($top: 0, $left: 0, $positionX: 50%, $positionY: 50%) {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+	object-position: $positionX $positionY;
+}
+
+.main-single {
+	max-width: 150rem;
+	padding: 3rem;
+	margin: auto;
+}
+
+.recipe {
+	/*BANNER*/
+	&__banner {
+		margin: 3rem 0;
+		position: relative;
+		@include flex(column, center, flex-start);
+		* {
+			color: var(--color-white);
+		}
+		&__info {
+			@include flex(row, space-between);
+			width: 100%;
+			* {
+				font-size: 1.2rem;
+				font-weight: 600;
+			}
+		}
+		&__title {
+			font-size: 3.5rem;
+			padding: 3rem 0;
+		}
+		&__subtitle {
+			font-size: 1.8rem;
+			margin-bottom: 3rem;
+		}
+		&__category {
+			@include flex();
+			img {
+				@include filter(invert, 100%);
+			}
+		}
+		&__image-wrapper {
+			@include image-wrapper(100vw, 30rem);
+			align-self: center;
+			margin: 1rem 0 -7rem 0;
+			z-index: 0;
+		}
+		&__image {
+			@include image();
+			z-index: 0;
+		}
+		&__border-wrapper {
+			@include image-wrapper(100vw, 10rem, absolute);
+			bottom: 0;
+			align-self: center;
+			transform: rotate(180deg);
+			z-index: -1;
+		}
+		&__border {
+			@include image();
+			z-index: -1;
+		}
+		&__background {
+			position: absolute;
+			z-index: -2;
+			background-color: #292929;
+			bottom: 0;
+			left: -50%;
+			width: 200vw;
+			height: 150%;
+		}
+	}
+
+	/*INGREDIENTS*/
+	&__ingredients {
+		padding-top: 10rem;
+		ul {
+			list-style: disc;
+			list-style-position: inside;
+		}
+		li, p {
+			font-size: 1.6rem;
+			font-weight: 400;
+			padding: 0.3rem;
+		}
+	}
+
+	/*INSTRUCTIONS*/
+	&__step-title {
+		font-size: 2.5rem;
+		font-weight: 600;
+		margin: 2rem 0 0.5rem 0;
+	}
+	&__instructions {
+		@include flex(column);
+	}
+	&__instruction {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		&__content {
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			max-width: 120rem;
+			padding: 1.5rem 0;
+			width: 100%;
+		}
+		&__number {
+			width: 2rem;
+			height: 2rem;
+			border-radius: 50%;
+			margin-right: 1rem;
+			background-color: var(--color-black);
+			color: var(--color-white);
+			font-weight: 800;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		&__text {
+			width: 85%;
+			word-wrap: break-word;
+			margin: 0.2rem 0;
+			font-weight: 400;
+		}
+		&__image-wrapper {
+			@include image-wrapper(100vw, 30rem);
+		}
+		&__image {
+			@include image();
+		}
+	}
+
+	/*SHARE*/
+	&__share {
+		display: flex;
+		justify-content: flex-end;
+		&__links {
+			display: flex;
+			flex-direction: row;
+			width: min-content;
+		}
+		.rslink-wrapper {
+			width: 4rem;
+			height: 4rem;
+			@include flex();
+		}
+		.rslink {
+			width: 3rem;
+			height: 3rem;
+			border-radius: 50%;
+			@include flex();
+			transition: all 0.6s;
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+		&__link {
+			&--facebook {
+				background-color: #3b5999;
+			}
+			&--twitter {
+				background-color: #55aded;
+			}
+			&--instagram {
+				background-color: #e44160;
+			}
+			&--mail {
+				background-color: #000000;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 320px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+	.main-single {
+		width: 80vw;
+	}
+	.recipe__banner__image-wrapper, .recipe__instruction__image-wrapper {
+		width: 100%;
+		height: 50rem;
+	}
+}
