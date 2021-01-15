@@ -16,13 +16,19 @@ Version: 1.0
     src: url("assets/fonts/Poppins.ttf");
 }
 
-html {
+*{margin: 0; padding: 0;}
+html {  
     font-size: 62.5%;
     --color-white: #fff;
     --color-black: #292929;
     --color-grey: #f5f5f5;
     font-family: "Poppins", sans-serif;
 }
+
+body {
+    margin: 0;
+}
+
 p{
     font-size: 1.6rem;
     font-weight: 300;
@@ -87,6 +93,11 @@ header .site__header__menu li a{
     width: 100%;
     position: relative;
 }
+.banner__title__hatch {
+    transform: rotate(180deg);
+    position: relative;
+    bottom: 5em;
+}
 .banner__title__text {
     padding: 3em 15em;
     width: 40%;
@@ -101,9 +112,11 @@ header .site__header__menu li a{
 .banner__pros {
     display: flex;
     justify-content: space-between;
-    margin-top: -12em;
+    margin-top: -20em;
     margin-left: 15em;
     margin-right: 15em;
+    position: relative;
+    z-index: 20;
 }
 .banner__pros__box {
     height: 32em;
@@ -133,8 +146,214 @@ header .site__header__menu li a{
     width: 40%;
 }
 
+/* Front-page */
 /* restaurants */
 .restau {
-    background-image: linear-gradient(#f5f5f505, #c00f0f06), 
-                    url(assets/images/burger\ party.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 7em 15em;
+}
+.restau::after{
+    content: "";
+    background-color: var(--color-grey);
+    background-image: url(assets/images/burger\ party.png);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.4;
+    z-index: -20;
+}
+.restau__presentation {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5em 0;
+}
+.restau__presentation__text {
+    width: 40%;
+    background-color: var(--color-white);
+    position: absolute;
+    left: 0;
+    text-align: center;
+    padding: 5em;
+}
+.restau__presentation img {
+    width: 60%;
+    height: auto;
+    float: left;
+}
+.restau__presentation a {
+    padding: 2em;
+    color: var(--color-white);
+    background-color: var(--color-black);
+}
+
+/* menu */
+.menu {
+    padding: 10em 15em;
+    display: flex;
+    justify-content: space-between;
+}
+.menu__images {
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu__images img{
+    width: 48%;
+    height: auto;
+    padding: 0.5em;
+}
+.menu__text{
+    width: 50%;
+    padding: 10em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.menu__text__detail {padding: 3em 0;}
+.menu__text__button {
+    padding: 2em;
+    margin: 3em 0;
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/* --------------------- reservations - START ---------------- */
+
+.reservation-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.reservation-p {
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+.reservation-img {
+    display: flex;
+    width: 100%;
+}
+
+.reservation-img img {
+    width: 100%;
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    text-align: left;
+    padding: 4rem 0;
+    background-color: #F5F5F5;
+}
+
+.reservation-form .caldera-grid .row {
+    margin: 0;
+}
+
+.reservation-form .field_required {
+    display: none;
+}
+
+.reservation-form .control-label {
+    font-weight: 400;
+}
+
+.reservation-form .form-control {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.reservation-form .caldera-grid .btn {
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    transition: all .2s ease-in-out;
+}
+
+.reservation-form .caldera-grid .btn:hover {
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+}
+
+.reservation-form .submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* --------------------- reservations - END ---------------- */
+
+
+@media only screen and (min-width: 320px) {
+
+    /* --------------------- reservations - START ---------------- */
+
+    .reservation-group {
+        position: relative;
+    }
+
+    .reservation-form {
+        padding: 4rem 6rem;
+        position: absolute;
+        width: 74%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        top: 80%;
+    }
+
+    .reservation-form .submit {
+        justify-content: flex-start;
+    }
+
+    /* --------------------- reservations - END ---------------- */
+}
+
+@media only screen and (min-width: 768px) {
+
+    /* --------------------- reservations - START ---------------- */
+
+    .reservation-group {
+        position: relative;
+        margin: 0 5rem;
+    }
+
+    .reservation-img img {
+        width: 70%;
+    }
+
+    .reservation-form {
+        width: 40%;
+        right: 0;
+        left: unset;
+        top: 0;
+        margin: 3rem;
+    }
+
+    .reservation-form .control-label {
+        font-size: 1.6rem;
+    }
+
+    .reservation-form .caldera-grid .btn {
+        padding: 1.5rem 3rem;
+    }
+
+    /* --------------------- reservations - END ---------------- */
+
+
 }

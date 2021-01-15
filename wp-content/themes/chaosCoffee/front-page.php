@@ -5,7 +5,7 @@
 
     <div class="banner__title">
         <img class="banner__title__img" src="<?= get_field('banner_top_image')['url']; ?>" alt="">
-        <!-- <img class="hachures-blanches" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt=""> -->
+        <img class="banner__title__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
         <div class="banner__title__text">
             <h2 class="main-subtitle"> <?= get_field('banner_top_main_subtitle'); ?> </h2>
             <h1 class="main-title"> <?= get_field('banner_top_main_title'); ?> </h1>
@@ -56,45 +56,14 @@
 <!-- contient titre, et 1 bloc / restaurants (faire une boucle) -->
 <section class="restau">
 
-    <p class="subtitle"><?= get_field('restaurants_subtitle'); ?></p>
-    <p class="title"><?= get_field('restaurants_title'); ?></p>
-
-    while (have_restaurants) {
-
-        <div class="restau__presentation">
-            <div class="restau__presentation__text">
-                <p class="subtitle"></p>
-                <p class="title"></p>
-                <p></p>
-                <button></button>
-            </div>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/image.png" alt="">
-            <!-- lien de l'image à changer -->
-        </div>
-
-    }
-    <!-- la condition de la boucle est à changer!!!! -->
+    <?php get_template_part('parts/restaurants') ?>
 
 </section>
 
 
-<!-- contient titre, texte, images ded presentation, bouton -->
-<section class="menu">
-
-    <div class="menu__images">
-        <img src="<?= get_field('menu_image_1')['url']; ?>" alt="">
-        <img src="<?= get_field('menu_image_2')['url']; ?>" alt="">
-        <img src="<?= get_field('menu_image_3')['url']; ?>" alt="">
-        <img src="<?= get_field('menu_image_4')['url']; ?>" alt="">
-    </div>
-    <div class="menu__text">
-        <p class="subtitle"><?= get_field('menu_subtitle'); ?></p>
-        <p class="title"><?= get_field('menu_title'); ?></p>
-        <p><?= get_field('menu_detail'); ?></p>
-        <a href="<?= get_field('menu_link')['url']; ?>"> <?= get_field('menu_link')['title']; ?> </a> 
-    </div>
-
-</section>
+<!-- section menu: contient titre, texte, images ded presentation, bouton -->
+<!-- creation du document dans /parts parce qu'on aura besoin de l'appeler sur d'autres pages -->
+<?php get_template_part('parts/discover-menu') ?>
 
 
 <!-- contient un icone, texte, et signature / avis (faire une boucle) -->
