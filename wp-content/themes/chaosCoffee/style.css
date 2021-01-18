@@ -300,6 +300,23 @@ header .site__header__menu li a{
 /* --------------------- reservations - END ---------------- */
 
 
+/* --------------------- RESTAURANT - START ---------------- */
+
+.restaurant__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant__banner {
+    background-size: cover;
+    width: 100vw;
+    height: 70vh;
+}
+
+
+/* --------------------- RESTAURANT - END ---------------- */
+
+
 @media only screen and (min-width: 320px) {
 
     /* --------------------- reservations - START ---------------- */
@@ -356,6 +373,5 @@ header .site__header__menu li a{
     }
 
     /* --------------------- reservations - END ---------------- */
-
 
 }
