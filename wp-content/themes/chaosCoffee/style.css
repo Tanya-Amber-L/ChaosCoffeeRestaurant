@@ -13,10 +13,9 @@ Version: 1.0
 }
 @font-face {
     font-family: "Poppins";
-    src: url("assets/fonts/Poppins-Thin.ttf");
+    src: url("assets/fonts/Poppins-Regular.ttf");
 }
 
-*{margin: 0; padding: 0;}
 html {  
     font-size: 62.5%;
     --color-white: #fff;
@@ -164,7 +163,7 @@ header .site__header__menu li a{
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.4;
+    opacity: 0.2;
     z-index: -20;
 }
 .restau__presentation {
@@ -182,6 +181,9 @@ header .site__header__menu li a{
     left: 0;
     text-align: center;
     padding: 5em;
+}
+.restau__presentation__text div {
+    margin: 3em;
 }
 .restau__presentation img {
     width: 60%;

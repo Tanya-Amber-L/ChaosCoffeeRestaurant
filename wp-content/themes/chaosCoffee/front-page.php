@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>style/flexslider.css">
 
 <!-- bannière contient notre titre, lien vers les menus + 3 qualités mises en avant  -->
 <section class="banner">
@@ -56,6 +57,9 @@
 <!-- contient titre, et 1 bloc / restaurants (faire une boucle) -->
 <section class="restau">
 
+    <p class="subtitle"> <?= get_field('restaurants_subtitle'); ?> </p>
+    <p class="title"> <?= get_field('restaurants_title'); ?> </p>
+
     <?php get_template_part('parts/restaurants') ?>
 
 </section>
@@ -69,17 +73,37 @@
 <!-- contient un icone, texte, et signature / avis (faire une boucle) -->
 <section class="testimony">
 
-    while (commentaires) {
+    <div class="slider">
 
-        <!-- icon , maybe with fontawesome -->
-        <p></p>
-        <p class="signature"></p>
+        <?php
+            if( have_rows('testimony') ):
+                while( have_rows('testimony') ) : the_row(); ?>
 
-    }
-    <!-- condition à changer!!!!!! -->
+                    <div class="slide-only">
+                        <div class="slide-text">
+                            <p><?= get_sub_field("opinion"); ?></p>
+                            <p class="subtitle"><?= get_sub_field('author'); ?></p>
+                        </div>
+                        <img class="slide-img" src="<?= get_sub_field('image'); ?>" alt="">
+                    </div>
+
+                <?php endwhile;?>
+
+                <div class="icon-arrow" id="prev" onclick="previousSlide()">
+                    <svg height="50px" id="Layer_1" style="enable-background:new 0 0 50 50;" version="1.1" viewBox="0 0 512 512" width="50px" color="#fff" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 "/></svg>
+                </div>
+
+                <div class="icon-arrow" id="next" onclick="nextSlide()">
+                    <svg height="50px" id="Layer_1" style="enable-background:new 0 0 50 50;" version="1.1" viewBox="0 0 512 512" width="50px" color="#fff" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 "/></svg>
+                </div>
+
+            <?php endif;?>
+
+    </div>
 
 </section>
 
+<?php get_template_part('parts/slider-script'); ?>
 
 
 <section class="recipes">

@@ -4,6 +4,8 @@ function theme_register_assets () {
 	//wp_register_style( 'themeStyle', 'localhost/testWordpress/wp-content/themes/testTheme/style.css' );
   wp_enqueue_style( 'main-style', get_template_directory_uri() . "/style.css");
   wp_enqueue_style( 'recipe-style', get_template_directory_uri() . "/style/recipe.css", ['main-style']);
+  wp_enqueue_style( 'slider-style', get_template_directory_uri() . "/slider.css", ['main-style']);
+  wp_enqueue_script( 'slider-script', get_template_directory_uri() . '/js/slider-script.js' );
 }
 
 register_nav_menus( array(

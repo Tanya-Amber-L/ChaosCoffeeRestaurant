@@ -16,7 +16,7 @@ $the_query = new WP_Query( $args );
                 
                 while( have_rows('presentation_repeater') ) : the_row();?>
 
-                    <p> <?php the_sub_field('presentation_repeater_wysiwig'); ?> </p>
+                    <?= get_sub_field('presentation_repeater_wysiwig'); ?>
             
             <?php endwhile; endif;?>
             
