@@ -17,18 +17,24 @@
     <div class="banner__pros">
         <div class="banner__pros__box">
             <img src="<?= get_field('banner_top_presentation_1_image')['url']; ?>" alt="">
-            <p class="title"> <?= get_field('banner_top_presentation_1_title'); ?> </p>
-            <p> <?= get_field('banner_top_presentation_1_detail'); ?> </p>
+            <div>
+                <p class="title"> <?= get_field('banner_top_presentation_1_title'); ?> </p>
+                <p> <?= get_field('banner_top_presentation_1_detail'); ?> </p>
+            </div>
         </div>
         <div class="banner__pros__box">
             <img src="<?= get_field('banner_top_presentation_2_image')['url']; ?>" alt="">
-            <p class="title"> <?= get_field('banner_top_presentation_2_title'); ?> </p>
-            <p> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
+            <div>
+                <p class="title"> <?= get_field('banner_top_presentation_2_title'); ?> </p>
+                <p> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
+            </div>
         </div>
         <div class="banner__pros__box">
             <img src="<?= get_field('banner_top_presentation_3_image')['url']; ?>" alt="">
-            <p class="title"> <?= get_field('banner_top_presentation_3_title'); ?> </p>
-            <p> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
+            <div>
+                <p class="title"> <?= get_field('banner_top_presentation_3_title'); ?> </p>
+                <p> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
+            </div>
         </div>
     </div>
 
@@ -39,7 +45,7 @@
 <!-- bloc contient titre, texte, et signature -->
 <section class="intro">
 
-    <img src="<?= get_field('intro_image')['url']; ?>" alt="">
+    <img class="intro__img" src="<?= get_field('intro_image')['url']; ?>" alt="">
 
     <div class="intro__text">
         <p class="title"> <?= get_field('intro_title'); ?> </p>
@@ -51,6 +57,8 @@
         </p>
     </div>
 
+    <img class="intro__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
+
 </section>
 
 
@@ -61,6 +69,8 @@
     <p class="title"> <?= get_field('restaurants_title'); ?> </p>
 
     <?php get_template_part('parts/restaurants') ?>
+
+    <img class="restau__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
 
 </section>
 
@@ -76,8 +86,11 @@
     <div class="slider">
 
         <?php
-            if( have_rows('testimony') ):
-                while( have_rows('testimony') ) : the_row(); ?>
+            if( have_rows('testimony') ): ?>
+
+                <img class="testimony__top__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
+
+                <?php while( have_rows('testimony') ) : the_row(); ?>
 
                     <div class="slide-only">
                         <div class="slide-text">
@@ -97,7 +110,9 @@
                     <svg height="50px" id="Layer_1" style="enable-background:new 0 0 50 50;" version="1.1" viewBox="0 0 512 512" width="50px" color="#fff" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 "/></svg>
                 </div>
 
-            <?php endif;?>
+                <img class="testimony__btm__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
+
+        <?php endif;?>
 
     </div>
 
