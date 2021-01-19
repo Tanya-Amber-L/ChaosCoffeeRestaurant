@@ -8,8 +8,10 @@
         <img src="<?= get_field('menu_image_4')['url']; ?>" alt="">
     </div>
     <div class="menu__text">
-        <p class="subtitle"><?= get_field('menu_subtitle'); ?></p>
-        <p class="title"><?= get_field('menu_title'); ?></p>
+        <div>
+            <p class="subtitle"><?= get_field('menu_subtitle'); ?></p>
+            <p class="title"><?= get_field('menu_title'); ?></p>
+        </div>
         <p class="menu__text__detail"><?= get_field('menu_detail'); ?></p>
         <a class="menu__text__button" href="<?= get_field('menu_link')['url']; ?>"> <?= get_field('menu_link')['title']; ?> </a> 
     </div>

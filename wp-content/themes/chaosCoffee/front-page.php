@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>style/flexslider.css">
 
 <!-- bannière contient notre titre, lien vers les menus + 3 qualités mises en avant  -->
 <section class="banner">
@@ -16,18 +17,24 @@
     <div class="banner__pros">
         <div class="banner__pros__box">
             <img src="<?= get_field('banner_top_presentation_1_image')['url']; ?>" alt="">
-            <p class="title"> <?= get_field('banner_top_presentation_1_title'); ?> </p>
-            <p> <?= get_field('banner_top_presentation_1_detail'); ?> </p>
+            <div>
+                <p class="title"> <?= get_field('banner_top_presentation_1_title'); ?> </p>
+                <p> <?= get_field('banner_top_presentation_1_detail'); ?> </p>
+            </div>
         </div>
         <div class="banner__pros__box">
             <img src="<?= get_field('banner_top_presentation_2_image')['url']; ?>" alt="">
-            <p class="title"> <?= get_field('banner_top_presentation_2_title'); ?> </p>
-            <p> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
+            <div>
+                <p class="title"> <?= get_field('banner_top_presentation_2_title'); ?> </p>
+                <p> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
+            </div>
         </div>
         <div class="banner__pros__box">
             <img src="<?= get_field('banner_top_presentation_3_image')['url']; ?>" alt="">
-            <p class="title"> <?= get_field('banner_top_presentation_3_title'); ?> </p>
-            <p> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
+            <div>
+                <p class="title"> <?= get_field('banner_top_presentation_3_title'); ?> </p>
+                <p> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
+            </div>
         </div>
     </div>
 
@@ -38,7 +45,7 @@
 <!-- bloc contient titre, texte, et signature -->
 <section class="intro">
 
-    <img src="<?= get_field('intro_image')['url']; ?>" alt="">
+    <img class="intro__img" src="<?= get_field('intro_image')['url']; ?>" alt="">
 
     <div class="intro__text">
         <p class="title"> <?= get_field('intro_title'); ?> </p>
@@ -50,13 +57,20 @@
         </p>
     </div>
 
+    <img class="intro__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
+
 </section>
 
 
 <!-- contient titre, et 1 bloc / restaurants (faire une boucle) -->
 <section class="restau">
 
+    <p class="subtitle"> <?= get_field('restaurants_subtitle'); ?> </p>
+    <p class="title"> <?= get_field('restaurants_title'); ?> </p>
+
     <?php get_template_part('parts/restaurants') ?>
+
+    <img class="restau__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
 
 </section>
 
@@ -69,17 +83,42 @@
 <!-- contient un icone, texte, et signature / avis (faire une boucle) -->
 <section class="testimony">
 
-    while (commentaires) {
+    <div class="slider">
 
-        <!-- icon , maybe with fontawesome -->
-        <p></p>
-        <p class="signature"></p>
+        <?php
+            if( have_rows('testimony') ): ?>
 
-    }
-    <!-- condition à changer!!!!!! -->
+                <img class="testimony__top__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
+
+                <?php while( have_rows('testimony') ) : the_row(); ?>
+
+                    <div class="slide-only">
+                        <div class="slide-text">
+                            <p><?= get_sub_field("opinion"); ?></p>
+                            <p class="subtitle"><?= get_sub_field('author'); ?></p>
+                        </div>
+                        <img class="slide-img" src="<?= get_sub_field('image'); ?>" alt="">
+                    </div>
+
+                <?php endwhile;?>
+
+                <div class="icon-arrow" id="prev" onclick="previousSlide()">
+                    <svg height="50px" id="Layer_1" style="enable-background:new 0 0 50 50;" version="1.1" viewBox="0 0 512 512" width="50px" color="#fff" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 "/></svg>
+                </div>
+
+                <div class="icon-arrow" id="next" onclick="nextSlide()">
+                    <svg height="50px" id="Layer_1" style="enable-background:new 0 0 50 50;" version="1.1" viewBox="0 0 512 512" width="50px" color="#fff" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 "/></svg>
+                </div>
+
+                <img class="testimony__btm__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
+
+        <?php endif;?>
+
+    </div>
 
 </section>
 
+<?php get_template_part('parts/slider-script'); ?>
 
 
 <section class="recipes">
