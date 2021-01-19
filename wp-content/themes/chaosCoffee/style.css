@@ -307,7 +307,106 @@ header .site__header__menu li a{
 .restaurant__banner {
     background-size: cover;
     width: 100vw;
-    height: 70vh;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.restaurant__banner--h1 {
+    font-size: 4rem;
+    color: white;
+}
+
+.restaurant__banner--p {
+    font-size: 2.2rem;
+    color: white;
+}
+
+.restaurant__banner--a {
+    color: white;
+    margin-top: 3rem;
+}
+
+.restaurant__presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.restaurant__presentation--h2 {
+    /*margin-bottom: 3rem;*/
+}
+
+.restaurant__presentation--p {
+    margin-top: 3rem;
+}
+
+.restaurant__presentation--img {
+    width: 40%;
+}
+
+.restaurant__presentation__div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.restaurant__presentation__img {
+    width: 100%;
+    background-size: cover;
+    height: 25rem;
+    margin-top: 3rem;
+}
+
+.restaurant__presentation__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.restaurant__presentation__div--p {
+    padding: 5rem 5rem 0;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.restaurant__presentation__div--h3 {
+    padding: 2rem 5rem 0;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.restaurant__presentation__div__textArea {
+    padding: 0 5rem;
+    line-height: 2.5rem;
+    font-size: 1.2rem;
+}
+
+.restaurant__presentation__gray {
+    background-color: #F5F5F5;
+    height: 10rem;
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.restaurant__location {
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant__location--h2 {
+    align-self: center;
+    margin-bottom: 3rem;
+}
+
+.restaurant__location--h3 {
+    align-self: center;
+    margin-top: 3rem;
+}
+
+.restaurant__location--map > iframe{
+    height: 40rem;
 }
 
 
@@ -370,5 +469,53 @@ header .site__header__menu li a{
     }
 
     /* --------------------- reservations - END ---------------- */
+
+    .restaurant__presentation__div {
+        flex-direction: row;
+    }
+
+    .restaurant__presentation__img {
+        width: 60rem;
+        height: 60rem;
+        background-size: cover;
+    }
+
+    .restaurant__presentation__text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60rem;
+        height: 60rem;
+    }
+
+    .restaurant__presentation__div--p {
+        padding: 5rem 5rem 0;
+    }
+
+    .restaurant__presentation__div--h3 {
+        padding: 2rem 5rem 0;
+    }
+
+    .restaurant__presentation__div__textArea {
+        padding: 0 10rem;
+        line-height: 5rem;
+    }
+
+    .restaurant__location {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .restaurant__location--h2 {
+        align-self: center;
+    }
+
+    .restaurant__location--h3 {
+        align-self: center;
+    }
+
+    .restaurant__location--map > iframe{
+        height: 90rem;
+    }
 
 }

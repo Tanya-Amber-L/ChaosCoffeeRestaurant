@@ -6,4 +6,4 @@
 		get_template_part( "parts/recipe" );
 	}
 
-get_footer(); ?>
+//get_footer(); ?>
