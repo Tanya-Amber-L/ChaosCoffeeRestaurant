@@ -6,7 +6,7 @@
     <!-- BANNER - START -->
     <div class="restaurant__banner" style="background-image:url('<?= get_field('top_image')['url']; ?>');">
         <p class="subtitle restaurant__banner--p"><?= get_field('top_subtitle'); ?></p>
-        <h1 class="main-title restaurant__banner--h1"><?= get_field('top_main_title'); ?></h1>
+        <h1 class="restaurant__banner--h1"><?= get_field('top_main_title'); ?></h1>
         <a class="restaurant__banner--a menu-text" href="#">&horbar;&nbsp;Check our menu</a>
 <!--        <img src="--><?//= get_field('top_image')['url']; ?><!--" alt="background">-->
     </div>
@@ -50,7 +50,7 @@
 
     <!-- LOCATION - START -->
     <div class="restaurant__location">
-        <h3 class="title restaurant__location--h3"><?= get_field('location_subtitle'); ?></h3>
+        <h3 class="subtitle restaurant__location--h3"><?= get_field('location_subtitle'); ?></h3>
         <h2 class="title restaurant__location--h2"><?= get_field('location_title'); ?></h2>
         <div class="restaurant__location--map"><?= get_field('location_map'); ?></div>
     </div>
@@ -59,13 +59,23 @@
 <!-- POST RESTAURANT - END -->
 
 <!-- RESERVATION - START -->
-<?= get_template_part( "parts/reservation" ); ?>
-<!-- RESERVATION - END -->
+<?php
 
-<!-- DISCOVER - START -->
-<?= get_template_part( "parts/discover-menu" ); ?>
-<!-- DISCOVER - END -->
+$args = array( 'posts_per_page' => -1,
+    'post_type' => 'page',
+    'include'=> 15
+);
 
+get_template_part( "parts/reservation" );
+
+wp_reset_postdata();
+// RESERVATION - END
+
+// DISCOVER - START
+get_template_part( "parts/discover-menu" );
+// DISCOVER - END
+
+?>
 <?php endwhile; endif; ?>
 <!-- CONDITION + BOUCLE - POST RESTAURANT - END -->
 
