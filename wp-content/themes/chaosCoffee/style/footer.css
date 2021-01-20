@@ -1,24 +1,85 @@
 .footer {
+  margin-top: 8rem;
+  width: 100vw;
+}
+.footer * {
+  font-weight: 600;
+}
+.footer__container-light {
+  width: 100%;
+  background-color: var(--color-grey);
+  position: relative;
+}
+.footer__container-dark {
+  width: 100%;
+  background-color: var(--color-black);
+  position: relative;
+}
+.footer__top__light {
+  position: absolute;
+  width: 100vw;
+  -webkit-filter: invert(5%);
+  -moz-filter: invert(5%);
+  -ms-filter: invert(5%);
+  -o-filter: invert(5%);
+  filter: invert(5%);
+  left: 0;
+  top: 0.2rem;
+  transform: rotateX(180deg);
+  transform-origin: top;
+}
+.footer__top__dark {
+  position: absolute;
+  width: 100%;
+  -webkit-filter: invert(84%);
+  -moz-filter: invert(84%);
+  -ms-filter: invert(84%);
+  -o-filter: invert(84%);
+  filter: invert(84%);
+  left: 0;
+  top: 0;
+  transform: rotateX(180deg);
+  transform-origin: top;
+}
+.footer__blog {
   max-width: 150rem;
-  padding: 3rem;
+  padding: 0;
   margin: auto;
+  box-sizing: border-box;
+  background-color: var(--color-grey);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .footer__blog__article {
   width: 100vw;
+  height: 40rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white);
+}
+.footer__blog__top {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 .footer__blog__image-wrapper {
   width: 100%;
-  height: auto;
+  height: 15rem;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  min-width: 20rem;
 }
 .footer__blog__image {
   width: 100%;
@@ -29,21 +90,222 @@
   object-fit: cover;
   object-position: 50% 50%;
 }
-.footer__newsletter {
+.footer__blog__content {
+  padding: 0 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
-.footer__bottom {
+.footer__blog__date {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  max-height: 3rem;
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.footer__blog__clock {
+  -webkit-filter: invert(95%);
+  -moz-filter: invert(95%);
+  -ms-filter: invert(95%);
+  -o-filter: invert(95%);
+  filter: invert(95%);
+  padding-right: 1rem;
+}
+.footer__blog__title {
+  height: 5rem;
+  max-height: 5rem;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.footer__blog__subtitle {
+  height: 8rem;
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.footer__blog__link {
+  box-sizing: border-box;
+  width: 80%;
+  height: 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.footer__blog__line {
+  size: 0px;
+  width: 95%;
+  border: none;
+  border-bottom: 0.3rem dashed #999;
+  position: absolute;
+  top: 45%;
+  left: 0;
+}
+.footer__blog__more {
+  position: relative;
+  background-color: var(--color-white);
+  padding: 0 1.5rem;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--color-black);
+  z-index: 1;
+}
+.footer__blog__more:hover {
+  cursor: pointer;
+}
+.footer__newsletter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 150rem;
+  padding: 3rem;
+  margin: auto;
+  box-sizing: border-box;
+  position: relative;
+  background-color: var(--color-black);
+  margin-top: 5rem;
+  margin-bottom: -3rem;
+  z-index: 1;
+}
+.footer__newsletter__title {
+  font-size: 3rem;
+}
+.footer__general {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 150rem;
+  padding: 3rem;
+  margin: auto;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  width: 100%;
+  list-style: none;
+  position: relative;
+}
+.footer__general * {
+  font-weight: 500;
+  color: var(--color-white);
+}
+.footer__general .widgettitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.footer__general__element1 {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
+}
+.footer__general__element1 .widgettitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.footer__general__element2 {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
+}
+.footer__general__element3 {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
+}
+.footer__schedule__element {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.footer__schedule__day {
+  background-color: var(--color-black);
+  position: relative;
+  padding: 0.3rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+.footer__schedule__icon {
+  padding-right: 0.3rem;
+}
+.footer__schedule__line {
+  size: 1px;
+  width: 95%;
+  border-top: 1px solid var(--color-white);
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.footer__schedule__hours {
+  background-color: var(--color-black);
+  position: relative;
+  padding: 0.3rem;
+}
+.footer__contact__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.footer__contact__icon {
+  margin-right: 1rem;
+}
+.footer__bottom {
+  max-width: 150rem;
+  padding: 3rem;
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white);
+  border-top: 1px solid var(--color-white);
+}
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 400px) {
+  .footer__general__element2 {
+    width: 50%;
+  }
+  .footer__general__element3 {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .footer__blog__article {
+    width: 40%;
+    margin: 2rem;
+  }
+}
+@media only screen and (min-width: 1230px) {
   footer {
     width: 80vw;
+  }
+
+  .footer__blog__article {
+    width: 20%;
+  }
+
+  .footer__general__element1 {
+    width: 25%;
+  }
+  .footer__general__element2 {
+    width: 25%;
+  }
+  .footer__general__element3 {
+    width: 25%;
   }
 }
