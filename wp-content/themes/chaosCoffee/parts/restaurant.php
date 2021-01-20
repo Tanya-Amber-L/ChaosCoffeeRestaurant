@@ -8,8 +8,8 @@
         <p class="subtitle restaurant__banner--p"><?= get_field('top_subtitle'); ?></p>
         <h1 class="restaurant__banner--h1"><?= get_field('top_main_title'); ?></h1>
         <a class="restaurant__banner--a menu-text" href="#">&horbar;&nbsp;Check our menu</a>
-<!--        <img src="--><?//= get_field('top_image')['url']; ?><!--" alt="background">-->
     </div>
+    <img class="restaurant__banner__hatch" src="<?= get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
     <!-- BANNER - END -->
 
     <!-- PRESENTATION - START -->
@@ -30,17 +30,7 @@
                 </div>
             </div>
 
-                <div class="restaurant__presentation__div">
-                    <div class="restaurant__presentation__img" style="background-image:url('<?= get_sub_field('presentation_repeater_image')['url']; ?>');">
-                    </div>
-                    <div class="restaurant__presentation__text">
-                        <p class="subtitle restaurant__presentation__div--p"><?= get_sub_field('presentation_repeater_subtitle') ?></p>
-                        <h3 class="title restaurant__presentation__div--h3"><?= get_sub_field('presentation_repeater_title') ?></h3>
-                        <p class="restaurant__presentation__div__textArea"><?= get_sub_field('presentation_repeater_textArea') ?></p>
-                    </div>
-                </div>
-
-            <div class="restaurant__presentation__gray"></div>
+<!--            <div class="restaurant__presentation__gray"></div>-->
         <?php
             endwhile;
         endif;
