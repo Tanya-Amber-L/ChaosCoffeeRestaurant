@@ -56,10 +56,6 @@ a {text-decoration: none;}
     font-size: 6rem;
     font-weight: 400;
 }
-.menu-text {
-    font-size: 1.6rem;
-    font-weight: 500;
-}
 .icon {
     width: 2rem;
     max-width: 2rem;
@@ -72,20 +68,24 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3em 15em;
+    padding: 3em 10em;
     background-color: black;
 }
 header .title {
     color: var(--color-white);
 }
-header .site__header__menu{
+.menu-nav{
     list-style-type: none;
     display: flex;
+    align-items: center;
 }
-header .site__header__menu li a{
-    padding-left: 2em;
+.menu-nav li a{
+    padding: 1em;
     color: var(--color-white);
+    font-size: 1.5rem;
+    font-weight: 500;
 }
+.burger-icon {display: none;}
 
 /* ---------------------Frontpage------------------- */
 /* banner */
@@ -589,11 +589,15 @@ header .site__header__menu li a{
 @media only screen and (max-width: 1250px) {
 
     /* general */
-    .main-title{font-size: 8rem;}
-    .main-subtitle{font-size: 4rem;}
+    .banner .main-title{font-size: 8rem;}
+    .banner .main-subtitle{font-size: 4rem;}
 
-    header {padding: 3em 8em;}
+    header {padding: 3em 5em;}
     header .title{font-size: 3rem;}
+    .menu-nav li a{
+        font-size: 1.2rem;
+        padding: 0.5em;
+    }
 
     /* --------------------- banner ---------------- */
     .banner__title__text {
@@ -627,12 +631,20 @@ header .site__header__menu li a{
 
 @media only screen and (max-width: 768px) {
 
-    .main-title {font-size: 6.5rem;}
-    .main-subtitle {font-size: 3.5rem;}
+    .banner .main-title {font-size: 6.5rem;}
+    .banner .main-subtitle {font-size: 3.5rem;}
 
     header {padding: 3em 3em;}
-    header .site__header__menu {display: none;}
     header .title {font-size: 2rem;}
+    .menu-nav {display: none;}
+    .burger-icon {
+        display: flex;
+        align-items: center;
+        color: var(--color-white);
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    .burger-icon svg{padding-left: 0.5em;}
 
 
     /* --------------------- banner ---------------- */
@@ -713,17 +725,16 @@ header .site__header__menu li a{
 
 @media only screen and (max-width: 320px) {
 
-    .main-title {
+    .banner .main-title {
         font-size: 3.5rem;
         padding: 1em 0;
     }
-    .main-subtitle {font-size: 2rem;}
+    .banner .main-subtitle {font-size: 2rem;}
     .title{font-size: 3rem;}
     .subtitle{font-size: 2rem;}
     p, .normal-text{font-size: 1.2rem;}
 
     header {padding: 3em 1.5em;}
-    header .site__header__menu {display: none;}
     header .title {font-size: 1.2rem;}
 
 
