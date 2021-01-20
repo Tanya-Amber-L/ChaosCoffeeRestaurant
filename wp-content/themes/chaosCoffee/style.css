@@ -16,19 +16,21 @@ Version: 1.0
     src: url("assets/fonts/Poppins-Regular.ttf");
 }
 
-html {
+html {  
     font-size: 62.5%;
     --color-white: #fff;
     --color-black: #292929;
     --color-grey: #f5f5f5;
+    --color-darken-grey: #d6d6d6;
     font-family: "Poppins", sans-serif;
+    width: 100vw;
 }
 
 body {
     margin: 0;
 }
 
-p{
+p, .normal-text{
     font-size: 1.6rem;
     font-weight: 300;
 }
@@ -39,6 +41,7 @@ a {text-decoration: none;}
 .title {
     font-size: 4.6rem;
     font-weight: 700;
+    text-transform: uppercase;
 }
 .subtitle {
     font-size: 4.2rem;
@@ -47,6 +50,7 @@ a {text-decoration: none;}
 .main-title {
     font-size: 10rem;
     font-weight: 600;
+    text-transform: uppercase;
 }
 .main-subtitle {
     font-size: 6rem;
@@ -71,7 +75,9 @@ header {
     padding: 3em 15em;
     background-color: black;
 }
-header .title {color: var(--color-white);}
+header .title {
+    color: var(--color-white);
+}
 header .site__header__menu{
     list-style-type: none;
     display: flex;
@@ -86,27 +92,35 @@ header .site__header__menu li a{
 .banner__title {
     position: relative;
     color: var(--color-white);
+    overflow: hidden;
 }
 .banner__title__img {
     z-index: -10;
-    width: 100%;
+    height: 100vh;
+    width: auto;
     position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 .banner__title__hatch {
     transform: rotate(180deg);
     position: relative;
-    bottom: 5em;
+    bottom: 3em;
+    width: 100vw;
+    height: 3em;
 }
 .banner__title__text {
     padding: 3em 15em;
-    width: 40%;
+    width: 50%;
     z-index: 10;
     position: absolute;
-    bottom: 60vh;
+    top: 10em;
 }
 .banner__title__text a{
     color: var(--color-white);
-
+    padding: 1.5em 0;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 .banner__pros {
     display: flex;
@@ -118,8 +132,8 @@ header .site__header__menu li a{
     z-index: 20;
 }
 .banner__pros__box {
-    height: 32em;
-    margin: 2em; /*------------------*/
+    text-align: center;
+    margin: 2em;
     padding: 4em;
     background-color: var(--color-white);
     display: flex;
@@ -128,8 +142,9 @@ header .site__header__menu li a{
     border-radius: 3em 3em 0 0;
     box-shadow: 2px 2px 7px var(--color-grey);
 }
+.banner__pros__box img {padding: 1em;}
 
-/* intro */
+/* ------------------------intro --------------------*/
 .intro{
     padding: 10em 15em;
     position: relative;
@@ -140,13 +155,25 @@ header .site__header__menu li a{
     position: absolute;
     right: 15em;
     background-color: var(--color-white);
-    box-shadow: 2px 2px 7px var(--color-grey);
+    box-shadow: 10px 5px 7px var(--color-grey);
     padding: 10em;
-    width: 40%;
+    width: 30%;
+}
+.intro__text .title {text-transform: capitalize;}
+.intro__text .subtitle {
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding: 1em 0;
+}
+.intro__hatch {
+    position: absolute;
+    left: 0;
+    bottom: -2em;
+    width: 100vw;
+    height: 3em;
 }
 
-/* Front-page */
-/* restaurants */
+/* ----------------------- restaurants ------------------- */
 .restau {
     display: flex;
     flex-direction: column;
@@ -156,14 +183,14 @@ header .site__header__menu li a{
 }
 .restau::after{
     content: "";
-    background-color: var(--color-grey);
+    background-color: var(--color-darken-grey);
     background-image: url(assets/images/burger\ party.png);
     position: absolute;
     top: 0px;
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.4;
+    opacity: 0.2;
     z-index: -20;
 }
 .restau__presentation {
@@ -182,22 +209,40 @@ header .site__header__menu li a{
     text-align: center;
     padding: 5em;
 }
-.restau__presentation img {
+.restau__presentation__text .subtitle {font-size: 2.5em;}
+.restau__presentation__text .title {
+    font-size: 3rem;
+    text-transform: capitalize;
+}
+.restau__presentation__text .normal-text {
+    margin: 2em 0;
+}
+.restau__img {
     width: 60%;
     height: auto;
-    float: left;
 }
 .restau__presentation a {
-    padding: 2em;
+    padding: 1.5em;
+    font-size: 1.3rem;
+    font-weight: 600;
     color: var(--color-white);
     background-color: var(--color-black);
 }
+.restau__hatch {
+    position: absolute;
+    bottom: -2em;
+    transform: rotate(180deg);
+    width: 100vw;
+    height: 3em;
+}
 
-/* menu */
+/* -------------------- menu ----------------------- */
 .menu {
     padding: 10em 15em;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 .menu__images {
     width: 40%;
@@ -205,7 +250,7 @@ header .site__header__menu li a{
     flex-wrap: wrap;
 }
 .menu__images img{
-    width: 48%;
+    width: 45%;
     height: auto;
     padding: 0.5em;
 }
@@ -217,7 +262,11 @@ header .site__header__menu li a{
     justify-content: center;
     align-items: center;
 }
-.menu__text__detail {padding: 3em 0;}
+.menu__text div{text-align: center;}
+.menu__text__detail {
+    padding: 3em 0;
+    text-align: center;
+}
 .menu__text__button {
     padding: 2em;
     margin: 3em 0;
@@ -225,29 +274,49 @@ header .site__header__menu li a{
     color: var(--color-white);
 }
 
+/* ----------------------testimony-------------------------- */
+.testimony {position: relative;}
+.testimony__top__hatch, .testimony__btm__hatch {
+    position: absolute;
+    z-index: 20;
+    width: 100vw;
+    height: 3em;
+}
+.testimony__top__hatch {top: -2em;}
+.testimony__btm__hatch {
+    transform: rotate(180deg);
+    bottom: -2em;
+}
+
 /* --------------------- reservations - START ---------------- */
 
-.reservation-container {
+.reservation__container {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.reservation-p {
-    text-transform: uppercase;
-    margin-top: 0;
+.reservation--h3 {
+    font-size: 3rem;
+    margin-top: 3rem;
 }
 
-.reservation-img {
+.reservation--h2 {
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 3rem;
+}
+
+.reservation__img {
     display: flex;
     width: 100%;
 }
 
-.reservation-img img {
+.reservation__img img {
     width: 100%;
 }
 
-.reservation-form {
+.reservation__form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -257,24 +326,24 @@ header .site__header__menu li a{
     background-color: #F5F5F5;
 }
 
-.reservation-form .caldera-grid .row {
+.reservation__form .caldera-grid .row {
     margin: 0;
 }
 
-.reservation-form .field_required {
+.reservation__form .field_required {
     display: none;
 }
 
-.reservation-form .control-label {
+.reservation__form .control-label {
     font-weight: 400;
 }
 
-.reservation-form .form-control {
+.reservation__form .form-control {
     border: none !important;
     box-shadow: none !important;
 }
 
-.reservation-form .caldera-grid .btn {
+.reservation__form .caldera-grid .btn {
     border: 1px solid black;
     background-color: black;
     color: white;
@@ -282,13 +351,13 @@ header .site__header__menu li a{
     transition: all .2s ease-in-out;
 }
 
-.reservation-form .caldera-grid .btn:hover {
+.reservation__form .caldera-grid .btn:hover {
     border: 1px solid white;
     background-color: white;
     color: black;
 }
 
-.reservation-form .submit {
+.reservation__form .submit {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
@@ -307,7 +376,106 @@ header .site__header__menu li a{
 .restaurant__banner {
     background-size: cover;
     width: 100vw;
-    height: 70vh;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.restaurant__banner--h1 {
+    font-size: 4rem;
+    color: white;
+}
+
+.restaurant__banner--p {
+    font-size: 2.2rem;
+    color: white;
+}
+
+.restaurant__banner--a {
+    color: white;
+    margin-top: 3rem;
+}
+
+.restaurant__presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.restaurant__presentation--h2 {
+    /*margin-bottom: 3rem;*/
+}
+
+.restaurant__presentation--p {
+    margin-top: 3rem;
+}
+
+.restaurant__presentation--img {
+    width: 40%;
+}
+
+.restaurant__presentation__div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.restaurant__presentation__img {
+    width: 100%;
+    background-size: cover;
+    height: 25rem;
+    margin-top: 3rem;
+}
+
+.restaurant__presentation__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.restaurant__presentation__div--p {
+    padding: 5rem 5rem 0;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.restaurant__presentation__div--h3 {
+    padding: 2rem 5rem 0;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.restaurant__presentation__div__textArea {
+    padding: 0 5rem;
+    line-height: 2.5rem;
+    font-size: 1.2rem;
+}
+
+.restaurant__presentation__gray {
+    background-color: #F5F5F5;
+    height: 10rem;
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.restaurant__location {
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant__location--h2 {
+    align-self: center;
+    margin-bottom: 3rem;
+}
+
+.restaurant__location--h3 {
+    align-self: center;
+    margin-top: 3rem;
+}
+
+.restaurant__location--map > iframe{
+    height: 40rem;
 }
 
 
@@ -318,11 +486,11 @@ header .site__header__menu li a{
 
     /* --------------------- reservations - START ---------------- */
 
-    .reservation-group {
+    .reservation__group {
         position: relative;
     }
 
-    .reservation-form {
+    .reservation__form {
         padding: 4rem 6rem;
         position: absolute;
         width: 74%;
@@ -333,7 +501,7 @@ header .site__header__menu li a{
         top: 80%;
     }
 
-    .reservation-form .submit {
+    .reservation__form .submit {
         justify-content: flex-start;
     }
 
@@ -344,16 +512,16 @@ header .site__header__menu li a{
 
     /* --------------------- reservations - START ---------------- */
 
-    .reservation-group {
+    .reservation__group {
         position: relative;
         margin: 0 5rem;
     }
 
-    .reservation-img img {
+    .reservation__img img {
         width: 70%;
     }
 
-    .reservation-form {
+    .reservation__form {
         width: 40%;
         right: 0;
         left: unset;
@@ -361,14 +529,253 @@ header .site__header__menu li a{
         margin: 3rem;
     }
 
-    .reservation-form .control-label {
+    .reservation__form .control-label {
         font-size: 1.6rem;
     }
 
-    .reservation-form .caldera-grid .btn {
+    .reservation__form .caldera-grid .btn {
         padding: 1.5rem 3rem;
     }
 
     /* --------------------- reservations - END ---------------- */
 
+    .restaurant__presentation__div {
+        flex-direction: row;
+    }
+
+    .restaurant__presentation__img {
+        width: 60rem;
+        height: 60rem;
+        background-size: cover;
+    }
+
+    .restaurant__presentation__text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60rem;
+        height: 60rem;
+    }
+
+    .restaurant__presentation__div--p {
+        padding: 5rem 5rem 0;
+    }
+
+    .restaurant__presentation__div--h3 {
+        padding: 2rem 5rem 0;
+    }
+
+    .restaurant__presentation__div__textArea {
+        padding: 0 10rem;
+        line-height: 5rem;
+    }
+
+    .restaurant__location {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .restaurant__location--h2 {
+        align-self: center;
+    }
+
+    .restaurant__location--h3 {
+        align-self: center;
+    }
+
+    .restaurant__location--map > iframe{
+        height: 90rem;
+    }
+
+}
+
+
+/* -------------------- RESPONSIVE FRONT PAGE --------------- */
+
+@media only screen and (max-width: 1250px) {
+
+    /* general */
+    .main-title{font-size: 8rem;}
+    .main-subtitle{font-size: 4rem;}
+
+    header {padding: 3em 8em;}
+    header .title{font-size: 3rem;}
+
+    /* --------------------- banner ---------------- */
+    .banner__title__text {
+        width: 70%;
+        top: 0;
+        padding: 3em 8em;
+    }
+    .banner__pros {
+        margin-left: 5em;
+        margin-right: 5em;
+    }
+    .banner__pros__box {padding: 2em;}
+    .banner__pros__box .title {font-size: 3em;}
+
+    /* --------------------- intro ------------------- */
+    .intro {padding: 10em 8em;}
+    .intro__text {
+        right: 8em;
+        padding: 5em;
+    }
+
+    /* ------------------restaurants -------------------- */
+    .restau {padding: 7em 8em;}
+
+    /* ------------------ menu -------------------- */
+    .menu {padding: 10em 8em;}
+}
+
+
+/* -------------------- RESPONSIVE FRONT PAGE TABLET--------------- */
+
+@media only screen and (max-width: 768px) {
+
+    .main-title {font-size: 6.5rem;}
+    .main-subtitle {font-size: 3.5rem;}
+
+    header {padding: 3em 3em;}
+    header .site__header__menu {display: none;}
+    header .title {font-size: 2rem;}
+
+
+    /* --------------------- banner ---------------- */
+    .banner__title__text {padding: 3em 3em; } 
+    .banner__pros {
+        margin-top: 0;
+        display: block;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 10em;
+    }
+    .banner__pros__box {
+        box-shadow: none;
+        border-radius: 0;
+        flex-direction: row;
+        padding: 0;
+    }
+
+
+    /* --------------------- intro ---------------- */
+    .intro {
+        padding: 0;
+        display: block;
+    }
+    .intro__img {
+        position: relative;
+        width: 100vw;
+    }
+    .intro__text {
+        position: relative;
+        top: -15em;
+        right: 5em;
+        left: 5em;
+        width: 60%;
+        padding: 10em;
+        box-shadow: 5px 10px 7px var(--color-grey);
+    }
+
+
+    /* ------------------- restau --------------------*/
+    .restau {
+        padding: 10em 0 40em 0;
+    }
+    .restau__presentation {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .restau__img {
+        width: 80%;
+    }
+    .restau__presentation__text {
+        width: 60%;
+        top: 30em;
+        left: 0;
+    }
+
+
+    /* ------------------- menus -------------------------- */
+    .menu {
+        flex-direction: column;
+        padding: 30em 5em 10em 5em;
+    }
+    .menu__images {width: 100%;}
+    .menu__text {
+        width: 100%;
+        padding: 5em  0;
+    }
+    .menu__text div {
+        position: absolute;
+        top: 5em;
+        padding: 1.5em;
+    }
+    .menu__text__button {margin: 0;}
+}
+
+
+/* -------------------- RESPONSIVE FRONT PAGE MOBILE--------------- */
+
+@media only screen and (max-width: 320px) {
+
+    .main-title {
+        font-size: 3.5rem;
+        padding: 1em 0;
+    }
+    .main-subtitle {font-size: 2rem;}
+    .title{font-size: 3rem;}
+    .subtitle{font-size: 2rem;}
+    p, .normal-text{font-size: 1.2rem;}
+
+    header {padding: 3em 1.5em;}
+    header .site__header__menu {display: none;}
+    header .title {font-size: 1.2rem;}
+
+
+    /* --------------------- banner ---------------- */
+    .banner__title__text {
+        padding: 3em 1.5em;
+        width: 100%;
+    } 
+    .banner__pros {
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+    }
+    .banner__pros__box {flex-direction: column;}
+    .banner__pros__box .title {font-size: 2rem;}
+    .banner__pros__box .detail {display: none;}
+
+
+    /* --------------------- intro ---------------- */
+    .intro__text {
+        top: 0;
+        padding: 1.5em;
+        left: 0em;
+        width: 90%;
+    }
+
+
+    /* ------------------- restau --------------------*/
+    .restau {padding: 10em 0;}
+    .restau__img {width: 100%;}
+    .restau__presentation__text {
+        position: relative;
+        width: 90%;
+        top: 0;
+        padding: 3em 1.5em;
+    }
+    .restau__presentation__text .subtitle {font-size: 2em;}
+    .restau__presentation__text .title {font-size: 2.5rem;}
+
+
+    /* ------------------- menus -------------------------- */
+    .menu {padding: 20em 1.5em 5em 1.5em;}
+    .menu__images {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    .menu__images img { width: 80%;}
+    .menu__text {padding: 2em 0;}
 }
