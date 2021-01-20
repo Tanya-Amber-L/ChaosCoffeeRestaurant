@@ -120,10 +120,7 @@
 </section>
 
 <?php get_template_part('parts/slider-script'); ?>
+<?php get_template_part('parts/burger-menu-script'); ?>
 
-
-<section class="recipes">
-
-</section>
 
 <?php get_footer(); ?>
