@@ -18,7 +18,7 @@ $the_query = new WP_Query( $args );
                 
                 while( have_rows('presentation_repeater') ) : the_row();?>
 
-                    <div><?= get_sub_field('presentation_repeater_textArea'); ?></div>
+                    <div class="normal-text"><?= get_sub_field('presentation_repeater_textArea'); ?></div>
             
             <?php endwhile; endif;?>
             

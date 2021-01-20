@@ -19,21 +19,21 @@
             <img src="<?= get_field('banner_top_presentation_1_image')['url']; ?>" alt="">
             <div>
                 <p class="title"> <?= get_field('banner_top_presentation_1_title'); ?> </p>
-                <p> <?= get_field('banner_top_presentation_1_detail'); ?> </p>
+                <p class="detail"> <?= get_field('banner_top_presentation_1_detail'); ?> </p>
             </div>
         </div>
         <div class="banner__pros__box">
             <img src="<?= get_field('banner_top_presentation_2_image')['url']; ?>" alt="">
             <div>
                 <p class="title"> <?= get_field('banner_top_presentation_2_title'); ?> </p>
-                <p> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
+                <p class="detail"> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
             </div>
         </div>
         <div class="banner__pros__box">
             <img src="<?= get_field('banner_top_presentation_3_image')['url']; ?>" alt="">
             <div>
                 <p class="title"> <?= get_field('banner_top_presentation_3_title'); ?> </p>
-                <p> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
+                <p class="detail"> <?= get_field('banner_top_presentation_2_detail'); ?> </p>
             </div>
         </div>
     </div>
@@ -52,8 +52,8 @@
         <p class="subtitle"> <?= get_field('intro_subtitle'); ?> </p>
         <p> <?= get_field('intro_text'); ?> </p>
         <p class="signature">
-            <p class="title"> <?= get_field('intro_signature_title'); ?> </p>
             <p class="subtitle"> <?= get_field('intro_signature_subtitle'); ?> </p>
+            <p class="title"> <?= get_field('intro_signature_title'); ?> </p>
         </p>
     </div>
 
@@ -94,8 +94,9 @@
 
                     <div class="slide-only">
                         <div class="slide-text">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/svg/right-quotation-mark.svg" alt="">
                             <p><?= get_sub_field("opinion"); ?></p>
-                            <p class="subtitle"><?= get_sub_field('author'); ?></p>
+                            <p class="signature">&horbar;<?= get_sub_field('author'); ?></p>
                         </div>
                         <img class="slide-img" src="<?= get_sub_field('image'); ?>" alt="">
                     </div>
