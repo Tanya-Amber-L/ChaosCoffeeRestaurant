@@ -391,16 +391,27 @@ header .title {
 .restaurant__banner--h1 {
     font-size: 4rem;
     color: white;
+    margin-left: 1.5rem;
 }
 
 .restaurant__banner--p {
     font-size: 2.2rem;
     color: white;
+    margin-left: 1.5rem;
 }
 
 .restaurant__banner--a {
     color: white;
     margin-top: 3rem;
+    margin-left: 1.5rem;
+}
+
+.restaurant__banner__hatch {
+    transform: rotate(180deg);
+    position: relative;
+    bottom: 1em;
+    width: 100vw;
+    height: 3em;
 }
 
 .restaurant__presentation {
@@ -425,6 +436,7 @@ header .title {
     display: flex;
     flex-direction: column;
     width: 100%;
+    justify-content: center;
 }
 
 .restaurant__presentation__img {
@@ -545,8 +557,28 @@ header .title {
 
     /* --------------------- reservations - END ---------------- */
 
-    .restaurant__presentation__div {
+    .restaurant__banner {
+        height: 70vh;
+    }
+
+    .restaurant__presentation__div:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .restaurant__presentation__div:nth-child(odd) {
         flex-direction: row;
+    }
+
+    .restaurant__banner--p {
+        font-size: 4.2rem;
+    }
+
+    .restaurant__banner--h1 {
+        font-size: 8rem;
+    }
+
+    .restaurant__banner--a {
+        font-size: 3rem;
     }
 
     .restaurant__presentation__img {
@@ -592,7 +624,6 @@ header .title {
     .restaurant__location--map > iframe{
         height: 90rem;
     }
-
 }
 
 

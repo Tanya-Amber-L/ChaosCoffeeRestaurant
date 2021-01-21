@@ -110,4 +110,32 @@ class chaos_coffee_widget extends WP_Widget {
 function wpb_load_widget() {
     register_widget( 'chaos_coffee_widget' );
 }
+
 add_action( 'widgets_init', 'wpb_load_widget' );
+
+// Création d'un CPT
+function capitaine_register_post_types() {
+
+    // CPT RESTAURANTS
+    $labels = array(
+        'name' => 'Restaurants',
+        'all_items' => 'Tous les restaurants',  // affiché dans le sous menu
+        'singular_name' => 'Restaurant',
+        'add_new_item' => 'Ajouter un restaurant',
+        'edit_item' => 'Modifier le restaurant',
+        'menu_name' => 'Restaurants'
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'show_in_rest' => true,
+        'has_archive' => true,
+        'supports' => array( 'title', 'editor','thumbnail' ),
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-food',
+    );
+
+    register_post_type( 'restaurant', $args );
+}
+add_action( 'init', 'capitaine_register_post_types' ); // Le hook init lance la fonction
