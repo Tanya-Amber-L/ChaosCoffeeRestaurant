@@ -4,6 +4,7 @@ function theme_register_assets () {
 	//wp_register_style( 'themeStyle', 'localhost/testWordpress/wp-content/themes/testTheme/style.css' );
   wp_enqueue_style( 'main-style', get_template_directory_uri() . "/style.css");
   wp_enqueue_style( 'recipe-style', get_template_directory_uri() . "/style/recipe.css", ['main-style']);
+  wp_enqueue_style( 'menu-style', get_template_directory_uri() . "/style/menu.css", ['main-style']);
   wp_enqueue_style( 'slider-style', get_template_directory_uri() . "/slider.css", ['main-style']);
   wp_enqueue_script( 'slider-script', get_template_directory_uri() . '/js/slider-script.js' );
   wp_enqueue_style( 'footer-style', get_template_directory_uri() . "/style/footer.css", ['main-style']);
@@ -15,17 +16,23 @@ register_nav_menus( array(
 ) );
 
 register_sidebar( array(
-    'id' => 'blog-sidebar',
-    'name' => 'Blog',
-    'before_widget'  => '<div class="site__sidebar__widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title' => '<p class="site__sidebar__widget__title">',
-    'after_title' => '</p>',
+    'id' => 'footer1',
+    'name' => 'Footer 1',
 ) );
 
 register_sidebar( array(
-    'id' => 'footer',
-    'name' => 'Footer',
+    'id' => 'footer2',
+    'name' => 'Footer 2',
+) );
+
+register_sidebar( array(
+    'id' => 'footer3',
+    'name' => 'Footer 3',
+) );
+
+register_sidebar( array(
+    'id' => 'footer4',
+    'name' => 'Footer 4',
 ) );
 
 add_action( 'wp_enqueue_scripts', 'theme_register_assets' );
@@ -34,3 +41,73 @@ add_action( 'wp_enqueue_scripts', 'theme_register_assets' );
 add_filter('use_block_editor_for_post', '__return_false', 10);
 // for post types
 add_filter('use_block_editor_for_post_type', '__return_false', 10);
+
+
+/* CUSTOM WIDGET FOR THE FOOTER GALLERY */
+
+function my_dynamic_sidebar_params( $params ) {
+    $widget_name = $params[0]['widget_name'];
+	$widget_id = $params[0]['widget_id'];
+	return $params;
+}
+add_filter('dynamic_sidebar_params', 'my_dynamic_sidebar_params');
+
+// Creating the widget 
+class chaos_coffee_widget extends WP_Widget {
+    function __construct() {
+        parent::__construct(
+        // Base ID of your widget
+        'chaosCoffee_gallery', 
+        // Widget name will appear in UI
+        __('Chaos Coffee Gallery', 'wpb_widget_domain'), 
+        // Widget description
+        array( 'description' => __( 'A custom gallery intended for the footer of the project', 'wpb_widget_domain' ), ) );
+    }
+    // Creating widget front-end
+    public function widget( $args, $instance ) {
+        $title = apply_filters( 'widget_title', $instance['title'] );
+        // before and after widget arguments are defined by themes
+        echo $args['before_widget'];
+        if ( ! empty( $title ) ) { 
+            echo $args['before_title'] . $title . $args['after_title'];
+        }
+        if( have_rows('images', 'widget_' . $widget_id) ) :
+            echo "<ul class='footer__gallery__list'>";
+            while( have_rows('images', 'widget_' . $widget_id) ): the_row(); 
+                ?><li class="footer__gallery__item">
+                    <img src="<?= get_sub_field('image', 'widget_' . $widget_id); ?>" alt="" class="footer__gallery__image">
+                </li><?php
+            endwhile;
+            echo "</ul>";
+        endif; 
+        echo $args['after_widget'];
+    }
+    // Widget Backend
+    public function form( $instance ) {
+        if ( isset( $instance[ 'title' ] ) ) {
+                $title = $instance[ 'title' ];
+        } else {
+            $title = __( 'New title', 'wpb_widget_domain' );
+        }
+        // Widget admin form
+        ?>
+            <p>
+                <!-- TITLE -->
+                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+                <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+            </p>
+        <?php
+    }
+    // Updating widget replacing old instances with new
+    public function update( $new_instance, $old_instance ) {
+        $instance = array();
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        return $instance;
+    }
+    // Class wpb_widget ends here
+}
+// Register and load the widget
+function wpb_load_widget() {
+    register_widget( 'chaos_coffee_widget' );
+}
+add_action( 'widgets_init', 'wpb_load_widget' );
