@@ -14,9 +14,9 @@ See Project's [Design](https://github.com/becodeorg/LIE-Hamilton-4.25/tree/maste
 Given deadline is on 25/01/2021.
 
 ## Team Members
-[Bertrand Dossogne](https://github.com/Bertrand2)
-[Auban Labie](https://github.com/Aubanyx)
-[Tanya Leenders](https://github.com/Tanya-Amber-L)
+* [Bertrand Dossogne](https://github.com/Bertrand2)
+* [Auban Labie](https://github.com/Aubanyx)
+* [Tanya Leenders](https://github.com/Tanya-Amber-L)
 
 ## Deployment
 Project not deployed yet.
