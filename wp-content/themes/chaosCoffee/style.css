@@ -557,12 +557,28 @@ header .title {
 
     /* --------------------- reservations - END ---------------- */
 
+    .restaurant__banner {
+        height: 70vh;
+    }
+
     .restaurant__presentation__div:nth-child(even) {
         flex-direction: row-reverse;
     }
 
     .restaurant__presentation__div:nth-child(odd) {
         flex-direction: row;
+    }
+
+    .restaurant__banner--p {
+        font-size: 4.2rem;
+    }
+
+    .restaurant__banner--h1 {
+        font-size: 8rem;
+    }
+
+    .restaurant__banner--a {
+        font-size: 3rem;
     }
 
     .restaurant__presentation__img {
@@ -608,7 +624,6 @@ header .title {
     .restaurant__location--map > iframe{
         height: 90rem;
     }
-
 }
 
 
