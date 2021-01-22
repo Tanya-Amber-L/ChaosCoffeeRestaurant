@@ -6,7 +6,7 @@
             <img src="<?= get_template_directory_uri() ?>/assets/images/reservation.jpg" alt="reservation">
         </div>
         <div class="reservation__form">
-            <?php the_content(); ?>
+            <?= do_shortcode('[caldera_form id="CF5ffd790ce03e5"]');?>
         </div>
     </div>
 </section>

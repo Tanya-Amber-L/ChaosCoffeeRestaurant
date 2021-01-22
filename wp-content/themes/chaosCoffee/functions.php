@@ -5,6 +5,7 @@ function theme_register_assets () {
   wp_enqueue_style( 'main-style', get_template_directory_uri() . "/style.css");
   wp_enqueue_style( 'home-style', get_template_directory_uri() . "/style/home.css", ['main-style']);
   wp_enqueue_style( 'recipe-style', get_template_directory_uri() . "/style/recipe.css", ['main-style']);
+  wp_enqueue_style( 'menu-style', get_template_directory_uri() . "/style/menu.css", ['main-style']);
   wp_enqueue_style( 'slider-style', get_template_directory_uri() . "/slider.css", ['main-style']);
   wp_enqueue_script( 'slider-script', get_template_directory_uri() . '/js/slider-script.js' );
   wp_enqueue_style( 'footer-style', get_template_directory_uri() . "/style/footer.css", ['main-style']);
@@ -118,3 +119,32 @@ function disable_gutenberg_editor() {
     return false;
 }
 add_filter("use_block_editor_for_post_type", "disable_gutenberg_editor");
+
+add_action( 'widgets_init', 'wpb_load_widget' );
+
+// Création d'un CPT
+function capitaine_register_post_types() {
+
+    // CPT RESTAURANTS
+    $labels = array(
+        'name' => 'Restaurants',
+        'all_items' => 'Tous les restaurants',  // affiché dans le sous menu
+        'singular_name' => 'Restaurant',
+        'add_new_item' => 'Ajouter un restaurant',
+        'edit_item' => 'Modifier le restaurant',
+        'menu_name' => 'Restaurants'
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'show_in_rest' => true,
+        'has_archive' => true,
+        'supports' => array( 'title', 'editor','thumbnail' ),
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-food',
+    );
+
+    register_post_type( 'restaurant', $args );
+}
+add_action( 'init', 'capitaine_register_post_types' ); // Le hook init lance la fonction
