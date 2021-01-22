@@ -3,6 +3,7 @@
 function theme_register_assets () {
 	//wp_register_style( 'themeStyle', 'localhost/testWordpress/wp-content/themes/testTheme/style.css' );
   wp_enqueue_style( 'main-style', get_template_directory_uri() . "/style.css");
+  wp_enqueue_style( 'home-style', get_template_directory_uri() . "/style/home.css", ['main-style']);
   wp_enqueue_style( 'recipe-style', get_template_directory_uri() . "/style/recipe.css", ['main-style']);
   wp_enqueue_style( 'slider-style', get_template_directory_uri() . "/slider.css", ['main-style']);
   wp_enqueue_script( 'slider-script', get_template_directory_uri() . '/js/slider-script.js' );
@@ -110,3 +111,10 @@ function wpb_load_widget() {
     register_widget( 'chaos_coffee_widget' );
 }
 add_action( 'widgets_init', 'wpb_load_widget' );
+
+
+//remove Gutenberg
+function disable_gutenberg_editor() {
+    return false;
+}
+add_filter("use_block_editor_for_post_type", "disable_gutenberg_editor");
