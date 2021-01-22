@@ -69,7 +69,9 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 3em 10em;
-    background-color: black;
+    position: absolute;
+    width: 87%;
+    z-index: 200;
 }
 header .title {
     color: var(--color-white);
@@ -116,7 +118,7 @@ header .title {
     height: 3em;
 }
 .banner__title__text {
-    padding: 3em 15em;
+    padding: 5em 15em;
     width: 50%;
     z-index: 10;
     position: absolute;
@@ -207,14 +209,21 @@ header .title {
     justify-content: flex-end;
     padding: 5em 0;
 }
+/* to get an alteerning design */
+.restau__presentation:nth-child(even) {flex-direction: row-reverse;}
+.restau__presentation:nth-child(odd) {flex-direction: row;}
+
 .restau__presentation__text {
     width: 40%;
     background-color: var(--color-white);
     position: absolute;
-    left: 0;
     text-align: center;
     padding: 5em;
 }
+/* to get an alteerning design */
+.restau__presentation__text:nth-child(even) {left: 0;}
+.restau__presentation__text:nth-child(odd) {right: 0;}
+
 .restau__presentation__text .subtitle {font-size: 2.5em;}
 .restau__presentation__text .title {
     font-size: 3rem;
@@ -646,7 +655,7 @@ header .title {
     .banner__title__text {
         width: 70%;
         top: 0;
-        padding: 3em 8em;
+        padding: 12em 8em;
     }
     .banner__pros {
         margin-left: 5em;
@@ -700,7 +709,7 @@ header .title {
 
 
     /* --------------------- banner ---------------- */
-    .banner__title__text {padding: 3em 3em; } 
+    .banner__title__text {padding: 10em 3em; } 
     .banner__pros {
         margin-top: 0;
         display: block;
@@ -792,7 +801,7 @@ header .title {
 
     /* --------------------- banner ---------------- */
     .banner__title__text {
-        padding: 3em 1.5em;
+        padding: 10em 1.5em;
         width: 100%;
     } 
     .banner__pros {
