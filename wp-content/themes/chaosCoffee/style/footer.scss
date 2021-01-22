@@ -75,10 +75,21 @@
 	}
 	&__blog {
 		@include container(0);
+		@include flex(column);
 		background-color: var(--color-grey);
-		position: relative;
-		@include flex(row, center, center);
-		flex-wrap: wrap;
+		&__head-pretitle {
+			font-size: 2rem;
+		}
+		&__head-title {
+			font-size: 3rem;
+			font-weight: 900;
+		}
+		&__articles {
+			width: 100%;
+			position: relative;
+			@include flex(row, center, center);
+			flex-wrap: wrap;
+		}
 		&__article {
 			width: 100vw;
 			height: 40rem;
@@ -129,18 +140,14 @@
 			box-sizing: border-box;
 			width: 80%;
 			height: 4rem;
-			position: relative;
-			@include flex(row, flex-end);
+			@include flex(row);
 			margin-bottom: 3rem;
 		}
 		&__line {
 			size: 0px;
-			width: 95%;
+			flex: 1;
 			border: none;
 			border-bottom: 0.3rem dashed #999;
-			position: absolute;
-			top: 45%;
-			left: 0;
 		}
 		&__more {
 			position: relative;
@@ -163,17 +170,44 @@
 		margin-top: 5rem;
 		margin-bottom: -3rem;
 		z-index: 1;
+		box-shadow: 0 0.3rem 1rem -0.2rem black;
 		&__title {
+			color: var(--color-white);
 			font-size: 3rem;
+			font-weight: 900;
+		}
+		&__form {
+			@include flex();
+			flex-wrap: wrap;
+		}
+		&__input {
+			margin: 1rem;
+			height: 3.5rem;
+			min-height: 3.5rem;
+			padding: 0 1rem;
+			border-radius: 0.3rem;
+			border-style: none;
+		}
+		&__submit {
+			margin: 1rem;
+			height: 3.5rem;
+			min-height: 3.5rem;
+			padding: 0 1rem;
+			border-radius: 0.3rem;
+			border-style: none;
 		}
 	}
 	&__general {
-		@include flex(row, center, flex-start);
 		@include container();
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 2fr 2fr 2fr 3fr;
+		grid-template-areas: "intro" "schedule" "contact" "images";
+		gap: 1rem;
 		width: 100%;
 		list-style: none;
 		position: relative;
+		padding-top: 5rem;
 		* {
 			font-weight: 500;
 			color: var(--color-white);
@@ -183,36 +217,87 @@
 			font-weight: 700;
 			margin-bottom: 1rem;
 		}
-		&__element {
-			&1 {
-				width:100%;
-				box-sizing: border-box;
-				padding: 2rem;
-				.widgettitle {
-					font-size: 2.5rem;
-					font-weight: 800;
-				}
-			}
-			&2 {
-				width:100%;
-				box-sizing: border-box;
-				padding: 2rem;
-			}
-			&3 {
-				width:100%;
-				box-sizing: border-box;
-				padding: 2rem;
+		&__intro {
+			grid-area: intro;
+			width:100%;
+			box-sizing: border-box;
+			padding: 2rem;
+			.widgettitle {
+				font-size: 2.5rem;
+				font-weight: 800;
 			}
 		}
-		// &__background {
-		// 	background-color: var(--color-black);
-		// 	position: absolute;
-		// 	top: -3rem;
-		// 	width: 200%;
-		// 	left: -50%;
-		// 	height: 200%;
-		// 	z-index: -2;
-		// }
+		&__schedule {
+			grid-area: schedule;
+			width:100%;
+			box-sizing: border-box;
+			padding: 2rem;
+		}
+		&__contact {
+			grid-area: contact;
+			width:100%;
+			box-sizing: border-box;
+			padding: 2rem;
+		}
+		&__images {
+			grid-area: images;
+			width:100%;
+			box-sizing: border-box;
+			padding: 2rem;
+		}
+		&__gallery {
+			width: 100%;
+			@include flex();
+			flex-wrap: wrap;
+		}
+		&__item {
+			box-sizing: border-box;
+			width: 15rem;
+			height: 15rem;
+			padding: 2%;
+		}
+		&__image {
+			@include image();
+			&-wrapper {
+				@include image-wrapper(90%, 90%);
+			}
+		}
+	}
+	&__social {
+		&__links {
+			display: flex;
+			flex-direction: row;
+			width: min-content;
+			.rslink-wrapper {
+				width: 4rem;
+				height: 4rem;
+				@include flex();
+			}
+			.rslink {
+				width: 3rem;
+				height: 3rem;
+				border-radius: 50%;
+				@include flex();
+				transition: all 0.6s;
+				&:hover {
+					transform: scale(1.2);
+				}
+			}
+		}
+		&__link {
+			&--facebook {
+				background-color: #3b5999;
+			}
+			&--twitter {
+				background-color: #55aded;
+			}
+			&--instagram {
+				background-color: #e44160;
+			}
+			&--mail {
+				background-color: #000000;
+			}
+		}
 	}
 	&__schedule {
 		&__element {
@@ -262,13 +347,10 @@
 }
 
 @media only screen and (min-width: 400px) {
-	.footer__general__element {
-		&2 {
-			width:50%;
-		}
-		&3 {
-			width:75%;
-		}
+	.footer__general {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 2fr;
+		grid-template-areas: "intro intro" "schedule contact" "images images";
 	}
 }
 
@@ -276,6 +358,9 @@
 	.footer__blog__article {
 		width: 40%;
 		margin: 2rem;
+	}
+	.footer__newsletter {
+		@include flex(row, space-around);
 	}
 }
 
@@ -286,15 +371,9 @@
 	.footer__blog__article {
 		width: 20%;
 	}
-	.footer__general__element {
-		&1 {
-			width:25%;
-		}
-		&2 {
-			width:25%;
-		}
-		&3 {
-			width:25%;
-		}
+	.footer__general {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: "intro schedule contact images";
 	}
 }
