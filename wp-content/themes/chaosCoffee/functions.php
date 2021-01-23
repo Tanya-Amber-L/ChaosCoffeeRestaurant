@@ -124,7 +124,7 @@ add_filter("use_block_editor_for_post_type", "disable_gutenberg_editor");
 add_action( 'widgets_init', 'wpb_load_widget' );
 
 // Création d'un CPT
-function capitaine_register_post_types() {
+function restaurants_register_post_types() {
 
     // CPT RESTAURANTS
     $labels = array(
@@ -141,11 +141,40 @@ function capitaine_register_post_types() {
         'public' => true,
         'show_in_rest' => true,
         'has_archive' => true,
-        'supports' => array( 'title', 'editor','thumbnail' ),
+        'supports' => array( 'title', 'editor','thumbnail', 'custom-fields' ),
         'menu_position' => 5,
         'menu_icon' => 'dashicons-food',
     );
 
     register_post_type( 'restaurant', $args );
 }
-add_action( 'init', 'capitaine_register_post_types' ); // Le hook init lance la fonction
+add_action( 'init', 'restaurants_register_post_types' ); // Le hook init lance la fonction
+
+
+// Renommer posts en recipes
+function change_post_menu_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Recipes';
+    $submenu['edit.php'][5][0] = 'Recipes';
+    $submenu['edit.php'][10][0] = 'Add recipe';
+    $submenu['edit.php'][16][0] = 'Tags';
+    echo '';
+}
+add_action( 'admin_menu', 'change_post_menu_label' );
+
+function change_post_object_label() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Recipes';
+    $labels->singular_name = 'Recipe';
+    $labels->add_new = 'Add Recipe';
+    $labels->add_new_item = 'Add Recipe';
+    $labels->edit_item = 'Edit Recipe';
+    $labels->new_item = 'Recipe';
+    $labels->view_item = 'View Recipe';
+    $labels->search_items = 'Search Recipes';
+    $labels->not_found = 'No Recipes found';
+    $labels->not_found_in_trash = 'No Recipes found in Trash';
+}
+add_action( 'init', 'change_post_object_label' );
