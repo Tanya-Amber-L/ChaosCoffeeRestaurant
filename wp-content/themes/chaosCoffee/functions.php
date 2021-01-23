@@ -6,6 +6,7 @@ function theme_register_assets () {
   wp_enqueue_style( 'home-style', get_template_directory_uri() . "/style/home.css", ['main-style']);
   wp_enqueue_style( 'recipe-style', get_template_directory_uri() . "/style/recipe.css", ['main-style']);
   wp_enqueue_style( 'menu-style', get_template_directory_uri() . "/style/menu.css", ['main-style']);
+  wp_enqueue_style( 'restau-archive-style', get_template_directory_uri() . "/style/archive-restaurant.css", ['main-style']);
   wp_enqueue_style( 'slider-style', get_template_directory_uri() . "/slider.css", ['main-style']);
   wp_enqueue_script( 'slider-script', get_template_directory_uri() . '/js/slider-script.js' );
   wp_enqueue_style( 'footer-style', get_template_directory_uri() . "/style/footer.css", ['main-style']);

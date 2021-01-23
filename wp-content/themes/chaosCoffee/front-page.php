@@ -63,16 +63,7 @@
 
 
 <!-- contient titre, et 1 bloc / restaurants (faire une boucle) -->
-<section class="restau">
-
-    <p class="subtitle"> <?= get_field('restaurants_subtitle'); ?> </p>
-    <p class="title"> <?= get_field('restaurants_title'); ?> </p>
-
-    <?php get_template_part('parts/restaurants') ?>
-
-    <img class="restau__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
-
-</section>
+<?php get_template_part('parts/restaurants') ?>
 
 
 <!-- section menu: contient titre, texte, images ded presentation, bouton -->
