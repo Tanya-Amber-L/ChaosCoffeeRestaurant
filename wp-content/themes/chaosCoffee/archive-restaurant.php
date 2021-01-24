@@ -1,7 +1,4 @@
 <?php
-/*
-	Template Name: Restaurants
-*/
 get_header();?>
 
 <img class="archive-restaurant-top-img" src="<?= get_field('banner_top_image',2)['url']; ?>" alt="">

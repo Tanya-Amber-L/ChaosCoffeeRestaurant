@@ -51,14 +51,8 @@
 <!-- RESERVATION - START -->
 <?php
 
-$args = array( 'posts_per_page' => -1,
-    'post_type' => 'page',
-    'include'=> 15
-);
-
 get_template_part( "parts/reservation" );
 
-wp_reset_postdata();
 // RESERVATION - END
 
 // DISCOVER - START
