@@ -1,6 +1,7 @@
 .footer {
   margin-top: 8rem;
   width: 100vw;
+  max-width: 100%;
 }
 .footer * {
   font-weight: 600;
@@ -18,6 +19,7 @@
 .footer__top__light {
   position: absolute;
   width: 100vw;
+  max-width: 100%;
   -webkit-filter: invert(5%);
   -moz-filter: invert(5%);
   -ms-filter: invert(5%);
@@ -428,5 +430,3 @@
     grid-template-areas: "intro schedule contact images";
   }
 }
-
-/*# sourceMappingURL=footer.css.map */

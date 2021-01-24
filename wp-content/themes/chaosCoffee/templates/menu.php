@@ -16,7 +16,7 @@ get_header();
 			<div class="banner__title__text">
 				<h2 class="main-subtitle"> <?= get_field('top_subtitle'); ?> </h2>
 				<h1 class="main-title"> <?= get_field('top_title'); ?> </h1>
-				<a href="<?= get_field('link')['url']; ?>"> &horbar;&horbar; <?= get_field('_link')['title']; ?> </a> 
+				<a href="<?= get_field('link')['url']; ?>"> &horbar;&horbar; <?= get_field('link')['title']; ?> </a>
 			</div>
 		</div>
 
