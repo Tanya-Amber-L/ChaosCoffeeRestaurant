@@ -205,3 +205,16 @@ function capitaine_register_post_types() {
     register_post_type( 'g', $args );
 }
 add_action( 'init', 'capitaine_register_post_types' ); // Le hook init lance la fonction
+
+
+// Code for themes
+add_action( 'after_switch_theme', 'flush_rewrite_rules' );
+
+// Code for plugins
+register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+register_activation_hook( __FILE__, 'myplugin_flush_rewrites' );
+function myplugin_flush_rewrites() {
+    // call your CPT registration function here (it should also be hooked into 'init')
+    myplugin_custom_post_types_registration();
+    flush_rewrite_rules();
+}
