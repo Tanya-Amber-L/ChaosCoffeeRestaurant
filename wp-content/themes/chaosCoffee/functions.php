@@ -141,7 +141,13 @@ function restaurants_register_post_types() {
         'public' => true,
         'show_in_rest' => true,
         'has_archive' => true,
-        'supports' => array( 'title', 'editor','thumbnail', 'custom-fields' ),
+
+//        'rewrite' => [
+//            'with_front' => true
+//        ],
+//        "sptp_permalink_structure" => '%postname%',
+
+        'supports' => array( 'title', 'editor','thumbnail' ),
         'menu_position' => 5,
         'menu_icon' => 'dashicons-food',
     );

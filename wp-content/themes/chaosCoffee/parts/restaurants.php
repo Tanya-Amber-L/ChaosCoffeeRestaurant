@@ -1,15 +1,9 @@
-<?php
-$args = array('post_type' => 'post', 'category_name' => 'restaurant');
-
-$the_query = new WP_Query( $args );
-?>
-
 <section class="restau">
 
     <p class="subtitle"> <?= get_field('restaurants_subtitle'); ?> </p>
     <p class="title"> <?= get_field('restaurants_title'); ?> </p>
 
-        <?php if( $the_query->have_posts() ) : while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+        <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 
             <div class="restau__presentation">
                 <img class="restau__img" src="<?= get_field('top_image')['url']; ?>" alt="">
@@ -24,12 +18,11 @@ $the_query = new WP_Query( $args );
                 
                     <?php endif;?>
                     
-                    <a href="single-restaurant.php"> More infos </a>
+                    <a href="<?php the_permalink(); ?>"> More infos </a>
                 </div>
             </div>
 
         <?php endwhile; endif;
-        wp_reset_postdata();
         ?>
     <img class="restau__hatch" src="<?php echo get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" alt="">
 
