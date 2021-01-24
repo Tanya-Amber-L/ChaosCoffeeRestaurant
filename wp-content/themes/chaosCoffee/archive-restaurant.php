@@ -1,7 +1,5 @@
 <?php
-/*
-	Template Name: Restaurants
-*/
+
 get_header();
 
 
