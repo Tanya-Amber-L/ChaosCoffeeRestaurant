@@ -202,6 +202,6 @@ function capitaine_register_post_types() {
         'menu_icon' => 'dashicons-admin-customizer',
     );
 
-    register_post_type( 'portfolio', $args );
+    register_post_type( 'g', $args );
 }
 add_action( 'init', 'capitaine_register_post_types' ); // Le hook init lance la fonction
