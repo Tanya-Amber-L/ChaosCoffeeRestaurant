@@ -111,7 +111,5 @@
 </section>
 
 <?php get_template_part('parts/slider-script'); ?>
-<?php get_template_part('parts/burger-menu-script'); ?>
-
 
 <?php get_footer(); ?>

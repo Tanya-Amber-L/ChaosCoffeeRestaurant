@@ -315,6 +315,12 @@ header .title {
     text-align: center;
 }
 
+.reservation__header-background {
+    height: 8em;
+    background-color: var(--color-black);
+    max-width: 100%;
+}
+
 .reservation--h3 {
     font-size: 3rem;
     margin-top: 3rem;
@@ -433,9 +439,9 @@ header .title {
     align-items: center;
 }
 
-.restaurant__presentation--h2 {
-    /*margin-bottom: 3rem;*/
-}
+/* .restaurant__presentation--h2 {
+    margin-bottom: 3rem;
+} */
 
 .restaurant__presentation--p {
     margin-top: 3rem;
@@ -517,6 +523,9 @@ header .title {
 
     /* --------------------- reservations - START ---------------- */
 
+    .reservation__header-background {
+        height: 10em;
+    }
     .reservation__group {
         position: relative;
     }
@@ -542,6 +551,10 @@ header .title {
 @media only screen and (min-width: 768px) {
 
     /* --------------------- reservations - START ---------------- */
+
+    .reservation__header-background {
+        height: 13em;
+    }
 
     .reservation__group {
         position: relative;
@@ -712,6 +725,7 @@ header .title {
         color: var(--color-white);
         font-size: 1.2rem;
         font-weight: 500;
+        cursor: pointer;
     }
     .burger-icon svg{padding-left: 0.5em;}
 
@@ -741,13 +755,14 @@ header .title {
     .intro__img {
         position: relative;
         width: 100vw;
+        max-width: 100%;
     }
     .intro__text {
         position: relative;
         top: -15em;
         right: 5em;
         left: 5em;
-        width: 55%;
+        width: 50%;
         padding: 10em;
         box-shadow: 5px 10px 7px var(--color-grey);
     }

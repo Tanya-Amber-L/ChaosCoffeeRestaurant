@@ -1,4 +1,5 @@
 <section class="reservation__container">
+    <div class="reservation__header-background"></div>
     <h3 class="subtitle reservation--h3">Submit information to Place Order</h3>
     <h2 class="reservation--h2 title">reserve a table</h2>
     <div class="reservation__group">
