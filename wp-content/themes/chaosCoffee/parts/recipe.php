@@ -8,31 +8,32 @@
 	?>
 
 	<section class="recipe__banner">
-		<div class="recipe__banner__info">
-			<p class="recipe__banner__date"><?php the_date(); ?></p>
-			<?php 
-				$categories = get_categories([]);
-				foreach ($categories as $category) { 
-					if ($category->slug !== "recipe" AND $category->slug !== "restaurant") { ?>
-					<div class="recipe__banner__category">
-						<img src="<?= get_template_directory_uri(); ?>/assets/svg/cutelry.svg" alt="" class="icon">
-						<p><?= $category->name; ?></p>
-					</div>
-				<?php }}
-			?>
-		</div>
-		<h1 class="recipe__banner__title"><?php the_field( "banner_title" ); ?></h1>
-		<h2 class="recipe__banner__subtitle"><?php the_field( "banner_subtitle" ); ?></h2>
-		<div class="recipe__banner__image-wrapper">
-			<img 
-				src="<?= the_field( "banner_image" ) ?>" 
-				alt="recipe picture" 
-				class="recipe__banner__image">
+		<div class="recipe__banner__wrapper">
+			<div class="recipe__banner__info">
+				<p class="recipe__banner__date"><?php the_date(); ?></p>
+				<?php 
+					$categories = get_categories([]);
+					foreach ($categories as $category) { 
+						if ($category->slug !== "recipe" AND $category->slug !== "restaurant") { ?>
+						<div class="recipe__banner__category">
+							<img src="<?= get_template_directory_uri(); ?>/assets/svg/cutelry.svg" alt="" class="icon">
+							<p><?= $category->name; ?></p>
+						</div>
+					<?php }}
+				?>
+			</div>
+			<h1 class="recipe__banner__title"><?php the_field( "banner_title" ); ?></h1>
+			<h2 class="recipe__banner__subtitle"><?php the_field( "banner_subtitle" ); ?></h2>
+			<div class="recipe__banner__image-wrapper">
+				<img 
+					src="<?= the_field( "banner_image" ) ?>" 
+					alt="recipe picture" 
+					class="recipe__banner__image">
+			</div>
 		</div>
 		<div class="recipe__banner__border-wrapper">
 			<img src="<?= get_template_directory_uri(); ?>/assets/images/hachures-blanches.png" class="recipe__banner__border">
 		</div>
-		<div class="recipe__banner__background"></div>
 	</section>
 
 	<section class="recipe__ingredients">
