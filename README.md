@@ -19,4 +19,4 @@ Given deadline is on 25/01/2021.
 * [Tanya Leenders](https://github.com/Tanya-Amber-L)
 
 ## Deployment
-Project not deployed yet.
+[Heeeeeeere](http://chaoscoffee.byethost7.com/ChaosCoffeeRestaurant/)
